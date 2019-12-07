@@ -1,0 +1,5 @@
+D:\Study and university\YEAR 2\SEMESTER 3\SchoolBook\Data\bin\Debug\netcoreapp3.0\Data.deps.json
+D:\Study and university\YEAR 2\SEMESTER 3\SchoolBook\Data\bin\Debug\netcoreapp3.0\Data.dll
+D:\Study and university\YEAR 2\SEMESTER 3\SchoolBook\Data\obj\Debug\netcoreapp3.0\Data.csprojAssemblyReference.cache
+D:\Study and university\YEAR 2\SEMESTER 3\SchoolBook\Data\obj\Debug\netcoreapp3.0\Data.AssemblyInfoInputs.cache
+D:\Study and university\YEAR 2\SEMESTER 3\SchoolBook\Data\obj\Debug\netcoreapp3.0\Data.AssemblyInfo.cs
