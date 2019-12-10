@@ -1,0 +1,5 @@
+{
+	"ConnectionStrings": {
+		"connstr": @"Server=DESKTOP-R1PO85B\NADERSQL;Database=SchoolBookDB;Trusted_Connection=True;
+	}
+}

@@ -8,8 +8,8 @@ namespace Models
 	public class Grade : BaseClass
 	{
 		public double Score { get; set; }
-		public ICollection<Student> Students { get; set; }
-		public ICollection<Subject> Subjects { get; set; }
+		public Student Student { get; set; }
+		public Subject Subject { get; set; }
 	}
 }
 

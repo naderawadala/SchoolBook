@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Data\\Data.csproj": {}
+    "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Data\\Data.csproj": {}
   },
   "projects": {
-    "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Data\\Data.csproj": {
+    "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Data\\Data.csproj",
+        "projectUniqueName": "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Data\\Data.csproj",
+        "projectPath": "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\Nader\\.nuget\\packages\\",
-        "outputPath": "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Data\\obj\\",
+        "outputPath": "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Models\\Models.csproj": {
-                "projectPath": "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Models\\Models.csproj"
+              "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Models\\Models.csproj": {
+                "projectPath": "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Models\\Models.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Models\\Models.csproj": {
+    "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Models\\Models.csproj",
+        "projectUniqueName": "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Models\\Models.csproj",
+        "projectPath": "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\Nader\\.nuget\\packages\\",
-        "outputPath": "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Models\\obj\\",
+        "outputPath": "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

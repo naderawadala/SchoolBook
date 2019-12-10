@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Models\\Models.csproj": {}
+    "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Models\\Models.csproj": {}
   },
   "projects": {
-    "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Models\\Models.csproj": {
+    "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Models\\Models.csproj",
+        "projectUniqueName": "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Models\\Models.csproj",
+        "projectPath": "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\Nader\\.nuget\\packages\\",
-        "outputPath": "D:\\Study and university\\YEAR 2\\SEMESTER 3\\SchoolBook\\Models\\obj\\",
+        "outputPath": "B:\\University\\YEAR 2\\SEMESTER 3\\Courseworks\\WEB API\\SchoolBook\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

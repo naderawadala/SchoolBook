@@ -1,4 +1,5 @@
 ﻿using Models.BaseModels;
+using Models.JoiningModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,6 @@ namespace Models
 {
 	public class Teacher:User
 	{
-		public ICollection<Subject> Subjects { get; set; }
+		public ICollection<TeacherSubject> TeacherSubjects { get; set; }
 	}
 }
