@@ -1,13 +1,12 @@
 ﻿using Models.BaseModels;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Models
 {
-	public class Teacher:User
+	public class Parent:User
 	{
-		public ICollection<Subject> Subjects { get; set; }
+		public ICollection<Student> Students { get; set; }
 	}
 }

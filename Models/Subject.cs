@@ -8,6 +8,7 @@ namespace Models
 	public class Subject:BaseClass
 	{
 		public string Name { get; set; }
-		public List<ICollection> Teacher { get; set; }
+		public ICollection<Teacher> Teachers { get; set; }
+		public ICollection<Grade> Grades { get; set; }
 	}
 }

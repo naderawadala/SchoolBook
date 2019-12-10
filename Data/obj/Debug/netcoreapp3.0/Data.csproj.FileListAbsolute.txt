@@ -3,3 +3,4 @@ D:\Study and university\YEAR 2\SEMESTER 3\SchoolBook\Data\bin\Debug\netcoreapp3.
 D:\Study and university\YEAR 2\SEMESTER 3\SchoolBook\Data\obj\Debug\netcoreapp3.0\Data.csprojAssemblyReference.cache
 D:\Study and university\YEAR 2\SEMESTER 3\SchoolBook\Data\obj\Debug\netcoreapp3.0\Data.AssemblyInfoInputs.cache
 D:\Study and university\YEAR 2\SEMESTER 3\SchoolBook\Data\obj\Debug\netcoreapp3.0\Data.AssemblyInfo.cs
+D:\Study and university\YEAR 2\SEMESTER 3\SchoolBook\Data\bin\Debug\netcoreapp3.0\Models.dll
