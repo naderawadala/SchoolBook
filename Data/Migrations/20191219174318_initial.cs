@@ -15,8 +15,7 @@ namespace Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Surname = table.Column<string>(nullable: true),
+                    Username = table.Column<string>(nullable: true),
                     HashedPassword = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -32,8 +31,7 @@ namespace Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Surname = table.Column<string>(nullable: true),
+                    Username = table.Column<string>(nullable: true),
                     HashedPassword = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -64,8 +62,7 @@ namespace Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Surname = table.Column<string>(nullable: true),
+                    Username = table.Column<string>(nullable: true),
                     HashedPassword = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -152,8 +149,8 @@ namespace Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Parents",
-                columns: new[] { "ID", "DateCreated", "DateModified", "HashedPassword", "Name", "Surname" },
-                values: new object[] { 1, new DateTime(2019, 12, 10, 16, 57, 37, 571, DateTimeKind.Local).AddTicks(5481), new DateTime(2019, 12, 10, 16, 57, 37, 575, DateTimeKind.Local).AddTicks(1966), "fadrea", "John", "Doe" });
+                columns: new[] { "ID", "DateCreated", "DateModified", "HashedPassword", "Username" },
+                values: new object[] { 1, new DateTime(2019, 12, 19, 19, 43, 17, 951, DateTimeKind.Local).AddTicks(1607), new DateTime(2019, 12, 19, 19, 43, 17, 954, DateTimeKind.Local).AddTicks(5238), "fadrea", "John" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Grades_StudentID",

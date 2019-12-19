@@ -96,10 +96,7 @@ namespace Data.Migrations
                     b.Property<string>("HashedPassword")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
@@ -110,11 +107,10 @@ namespace Data.Migrations
                         new
                         {
                             ID = 1,
-                            DateCreated = new DateTime(2019, 12, 10, 16, 57, 37, 571, DateTimeKind.Local).AddTicks(5481),
-                            DateModified = new DateTime(2019, 12, 10, 16, 57, 37, 575, DateTimeKind.Local).AddTicks(1966),
+                            DateCreated = new DateTime(2019, 12, 19, 19, 43, 17, 951, DateTimeKind.Local).AddTicks(1607),
+                            DateModified = new DateTime(2019, 12, 19, 19, 43, 17, 954, DateTimeKind.Local).AddTicks(5238),
                             HashedPassword = "fadrea",
-                            Name = "John",
-                            Surname = "Doe"
+                            Username = "John"
                         });
                 });
 
@@ -134,10 +130,7 @@ namespace Data.Migrations
                     b.Property<string>("HashedPassword")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
@@ -182,10 +175,7 @@ namespace Data.Migrations
                     b.Property<string>("HashedPassword")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");

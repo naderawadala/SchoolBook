@@ -42,8 +42,7 @@ namespace Data
 				ID = 1,
 				DateCreated = DateTime.Now,
 				DateModified = DateTime.Now,
-				Name = "John",
-				Surname = "Doe",
+				Username = "John",
 				HashedPassword = "fadrea"
 			});
 				
