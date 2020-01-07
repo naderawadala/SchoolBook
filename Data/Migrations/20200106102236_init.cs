@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Data.Migrations
 {
-    public partial class initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,9 @@ namespace Data.Migrations
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: false),
                     Username = table.Column<string>(nullable: true),
-                    HashedPassword = table.Column<string>(nullable: true)
+                    HashedPassword = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -32,7 +34,9 @@ namespace Data.Migrations
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: false),
                     Username = table.Column<string>(nullable: true),
-                    HashedPassword = table.Column<string>(nullable: true)
+                    HashedPassword = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -63,7 +67,9 @@ namespace Data.Migrations
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: false),
                     Username = table.Column<string>(nullable: true),
-                    HashedPassword = table.Column<string>(nullable: true)
+                    HashedPassword = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -149,8 +155,8 @@ namespace Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Parents",
-                columns: new[] { "ID", "DateCreated", "DateModified", "HashedPassword", "Username" },
-                values: new object[] { 1, new DateTime(2019, 12, 19, 19, 43, 17, 951, DateTimeKind.Local).AddTicks(1607), new DateTime(2019, 12, 19, 19, 43, 17, 954, DateTimeKind.Local).AddTicks(5238), "fadrea", "John" });
+                columns: new[] { "ID", "DateCreated", "DateModified", "FirstName", "HashedPassword", "LastName", "Username" },
+                values: new object[] { 1, new DateTime(2020, 1, 6, 12, 22, 35, 781, DateTimeKind.Local).AddTicks(9334), new DateTime(2020, 1, 6, 12, 22, 35, 786, DateTimeKind.Local).AddTicks(4551), null, "fadrea", null, "John" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Grades_StudentID",

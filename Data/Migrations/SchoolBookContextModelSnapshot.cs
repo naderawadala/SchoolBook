@@ -93,7 +93,13 @@ namespace Data.Migrations
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("HashedPassword")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
@@ -107,8 +113,8 @@ namespace Data.Migrations
                         new
                         {
                             ID = 1,
-                            DateCreated = new DateTime(2019, 12, 19, 19, 43, 17, 951, DateTimeKind.Local).AddTicks(1607),
-                            DateModified = new DateTime(2019, 12, 19, 19, 43, 17, 954, DateTimeKind.Local).AddTicks(5238),
+                            DateCreated = new DateTime(2020, 1, 6, 12, 22, 35, 781, DateTimeKind.Local).AddTicks(9334),
+                            DateModified = new DateTime(2020, 1, 6, 12, 22, 35, 786, DateTimeKind.Local).AddTicks(4551),
                             HashedPassword = "fadrea",
                             Username = "John"
                         });
@@ -127,7 +133,13 @@ namespace Data.Migrations
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("HashedPassword")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
@@ -172,7 +184,13 @@ namespace Data.Migrations
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("HashedPassword")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")

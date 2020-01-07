@@ -247,7 +247,6 @@ B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\De
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\obj\Debug\netcoreapp3.0\SchoolBook.csprojAssemblyReference.cache
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\obj\Debug\netcoreapp3.0\staticwebassets\SchoolBook.StaticWebAssets.Manifest.cache
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\obj\Debug\netcoreapp3.0\staticwebassets\SchoolBook.StaticWebAssets.xml
-B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\obj\Debug\netcoreapp3.0\SchoolBook.MvcApplicationPartsAssemblyInfo.cache
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\obj\Debug\netcoreapp3.0\SchoolBook.AssemblyInfoInputs.cache
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\obj\Debug\netcoreapp3.0\SchoolBook.AssemblyInfo.cs
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\obj\Debug\netcoreapp3.0\SchoolBook.RazorTargetAssemblyInfo.cache
@@ -258,3 +257,11 @@ B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\De
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Models.dll
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Data.pdb
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Models.pdb
+B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.JsonWebTokens.dll
+B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Logging.dll
+B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.dll
+B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Tokens.dll
+B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll
+B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\obj\Debug\netcoreapp3.0\SchoolBook.MvcApplicationPartsAssemblyInfo.cache

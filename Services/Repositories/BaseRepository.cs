@@ -9,8 +9,8 @@ namespace Services.Repositories
 {
 	public class BaseRepository<T> : IBaseRepository<T> where T : class
 	{
-		protected SchoolBookContext Context;
-		protected DbSet<T> DbSet { get { return Context.Set<T>(); } }
+		private SchoolBookContext Context;
+		private DbSet<T> DbSet { get { return Context.Set<T>(); } }
 		public BaseRepository()
 		{
 			Context = new SchoolBookContext();
