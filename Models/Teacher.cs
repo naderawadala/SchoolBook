@@ -7,8 +7,10 @@ using System.Text;
 
 namespace Models
 {
-	public class Teacher:User
+	public class Teacher:BaseClass
 	{
+		public int? UserID;
+		public User User { get; set; }
 		public ICollection<TeacherSubject> TeacherSubjects { get; set; }
 	}
 }

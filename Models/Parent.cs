@@ -6,8 +6,10 @@ using System.Text;
 
 namespace Models
 {
-	public class Parent:User
+	public class Parent:BaseClass
 	{
+		public int? UserID;
+		public User User { get; set; }
 		public ICollection<ParentStudent> ParentStudents { get; set; }
 	}
 }

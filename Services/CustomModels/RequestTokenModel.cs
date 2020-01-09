@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Services.CustomModels
 {
-	class RequestTokenModel
+	public class RequestTokenModel
 	{
+		public string Email { get; set; }
 	}
 }

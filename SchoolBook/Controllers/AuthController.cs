@@ -6,11 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SchoolBook.Controllers
 {
+	[Route("api/auth")]
+	[ApiController]
     public class AuthController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+       [HttpPost,Route("login")]
     }
 }

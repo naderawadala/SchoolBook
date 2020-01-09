@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models;
+using Models.BaseModels;
 using Models.JoiningModels;
 using System;
 using System.Linq;
@@ -20,6 +21,10 @@ namespace Data
 
 		public DbSet<Subject> Subjects { get; set; }
 		public DbSet<Teacher> Teachers { get; set; }
+		public DbSet<User> Users { get; set; }
+		public DbSet<Role> Roles { get; set; }
+		public DbSet<UserRoles> UserRoles { get; set; }
+		public DbSet<UserToken> UserTokens { get; set; }
 		#endregion
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

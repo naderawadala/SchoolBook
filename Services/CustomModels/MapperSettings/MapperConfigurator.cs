@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Services.CustomModels.MapperSettings
 {
-	class MapperConfigurator
+	public class MapperConfigurator
 	{
 	}
 }

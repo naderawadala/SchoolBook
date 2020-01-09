@@ -6,13 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SchoolBook.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("api/users")]
 	[ApiController]
     public class UserController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }
