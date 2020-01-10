@@ -47,8 +47,8 @@ namespace Data
 				ID = 1,
 				DateCreated = DateTime.Now,
 				DateModified = DateTime.Now,
-				Username = "John",
-				HashedPassword = "fadrea"
+				User=new User { FirstName="John", LastName="Boyega",Email="johnboyega@gmail.com"}
+
 			});
 				
 			

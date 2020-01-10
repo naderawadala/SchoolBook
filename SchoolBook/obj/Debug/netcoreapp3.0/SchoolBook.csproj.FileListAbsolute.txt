@@ -266,3 +266,4 @@ B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\De
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\AutoMapper.dll
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\obj\Debug\netcoreapp3.0\SchoolBook.MvcApplicationPartsAssemblyInfo.cache
