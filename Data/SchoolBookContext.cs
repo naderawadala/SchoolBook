@@ -22,8 +22,6 @@ namespace Data
 		public DbSet<Subject> Subjects { get; set; }
 		public DbSet<Teacher> Teachers { get; set; }
 		public DbSet<User> Users { get; set; }
-		public DbSet<Role> Roles { get; set; }
-		public DbSet<UserRoles> UserRoles { get; set; }
 		public DbSet<UserToken> UserTokens { get; set; }
 		#endregion
 
@@ -33,6 +31,7 @@ namespace Data
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
+			
 			modelBuilder.Entity<Parent>().HasMany(x => x.ParentStudents).WithOne(x => x.Parent).OnDelete(DeleteBehavior.Restrict);
 			modelBuilder.Entity<Student>().HasMany(x => x.ParentStudents).WithOne(x => x.Student).OnDelete(DeleteBehavior.Restrict);
 			modelBuilder.Entity<ParentStudent>().HasKey(k => new { k.ParentID, k.StudentID });
@@ -41,18 +40,6 @@ namespace Data
 			modelBuilder.Entity<Subject>().HasMany(x => x.TeacherSubjects).WithOne(x => x.Subject).OnDelete(DeleteBehavior.Restrict);
 			modelBuilder.Entity<TeacherSubject>().HasKey(k => new { k.TeacherID, k.SubjectID });
 
-			#region Seeds
-			modelBuilder.Entity<Parent>().HasData(new Parent
-			{
-				ID = 1,
-				DateCreated = DateTime.Now,
-				DateModified = DateTime.Now,
-				User=new User { FirstName="John", LastName="Boyega",Email="johnboyega@gmail.com"}
-
-			});
-				
-			
-			#endregion
 		}
 
 		public override int SaveChanges()

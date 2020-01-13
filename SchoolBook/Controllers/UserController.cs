@@ -8,16 +8,22 @@ using Services.Managers.Interfaces;
 
 namespace SchoolBook.Controllers
 {
-	[Route("api/users")]
+	[Route("api/user")]
 	[ApiController]
-    public class UserController : Controller
+	public class UserController : Controller
     {
 		private IUserManager userManager;
-		public UserController(IUserManager identityManager)
+		public UserController(IUserManager userManager)
 		{
-			this.userManager = identityManager;
+			this.userManager = userManager;
+		}
+		[HttpGet]
+		public ActionResult Test()
+		{
+			return Ok("Test passed");
 		}
         [HttpPost]
+		[Route("register")]
 		public IActionResult Register(RegisterModel model)
 		{
 			string result=userManager.Register(model);
@@ -28,6 +34,7 @@ namespace SchoolBook.Controllers
 			return BadRequest();
 		}
 		[HttpPost]
+		[Route("login")]
 		public IActionResult Login(LoginModel model)
 		{
 			string result = userManager.LoginUser(model);

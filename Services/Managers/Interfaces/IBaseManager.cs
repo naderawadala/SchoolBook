@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Services.Repositories
+namespace Services.Managers.Interfaces
 {
-	public interface IBaseRepository<T> where T:class
+	public interface IBaseManager<T> where T : class
 	{
 		void Create(T item);
 		T GetByID(int id);

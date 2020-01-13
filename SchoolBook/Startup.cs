@@ -14,6 +14,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using AutoMapper;
+using Services.Managers.Interfaces;
+using Services.Identity.Implementations;
+using Data;
+using Services.CustomModels;
 
 namespace WebApplication
 {
@@ -22,6 +26,7 @@ namespace WebApplication
 		public Startup(IConfiguration configuration)
 		{
 			Configuration = configuration;
+		
 		}
 
 		public IConfiguration Configuration { get; }
@@ -29,6 +34,10 @@ namespace WebApplication
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.Configure<TokenModel>(Configuration.GetSection("tokenManagement"));
+			var token = Configuration.GetSection("tokenManagement").Get<TokenModel>();
+			var secret = Encoding.ASCII.GetBytes(token.Secret);
+
 			services.AddAuthentication(opt =>
 			{
 				opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -48,8 +57,14 @@ namespace WebApplication
 			IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
 		};
 	});
+			services.AddRouting();
+			
 			services.AddAutoMapper(typeof(Startup));
 			services.AddControllers();
+
+
+			services.AddScoped<SchoolBookContext>();
+			services.AddScoped<IUserManager, UserManager>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,10 +78,10 @@ namespace WebApplication
 			app.UseHttpsRedirection();
 
 			app.UseRouting();
-
+			
 			app.UseAuthentication();
 			app.UseAuthorization();
-
+			
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllers();

@@ -23,12 +23,12 @@ namespace Services.CustomModels
 		public string Password { get; set; }
 
 		[Compare("Password", ErrorMessage = "Passwords do not match!")]
-
+		
 		public string ConfirmPassword { get; set; }
-
+		[Required]
 		public string FirstName { get; set; }
-
+		[Required]
 		public string LastName { get; set; }
-		public ICollection<Role> Roles { get; set; }
+		//public ICollection<Role> Roles { get; set; }
 	}
 }

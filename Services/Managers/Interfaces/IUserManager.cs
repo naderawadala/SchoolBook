@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Services.Interfaces
+namespace Services.Managers.Interfaces
 {
-	public interface IIdentityManager
+	public interface IUserManager
 	{
 		string LoginUser(LoginModel model);
 
 		string Register(RegisterModel model);
 
-		string EditUser(PersonModel model);
+		string EditUser(EditPersonModel model);
 		string DeleteUser(int id);
 	}
 }

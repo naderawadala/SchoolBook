@@ -2,11 +2,10 @@
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Models;
-using Models.BaseModels;
 using Services.Common;
 using Services.CustomModels;
 using Services.CustomModels.MapperSettings;
-using Services.Interfaces;
+using Services.Managers.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,14 +15,14 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Services.Identity
+namespace Services.Identity.Implementations
 {
-	public class IdentityManager : IIdentityManager
+	public class UserManager : IUserManager
 	{
 		private readonly TokenModel _tokenManagement;
 		private SchoolBookContext dbContext;
 		private User User;
-		public IdentityManager(SchoolBookContext data, IOptions<TokenModel> tokenManagement)
+		public UserManager(SchoolBookContext data, IOptions<TokenModel> tokenManagement)
 		{
 			this.dbContext = data;
 			this._tokenManagement = tokenManagement.Value;
@@ -60,12 +59,7 @@ namespace Services.Identity
 			{
 			  new Claim(ClaimTypes.Email, request.Email)
 			};
-
-			for (int i = 0; i < User.UserRoles.Count; i++)
-			{
-				claim.Add(new Claim(ClaimTypes.Role, User.UserRoles.ToList()[i].Role.RoleName));
-			}
-
+			
 			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenManagement.Secret));
 			var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
@@ -109,17 +103,7 @@ namespace Services.Identity
 				User.Password = HashPassword(model.Password);
 
 				var userToken = new UserToken() { Token = token, User = User };
-				var getRolesFromDb =
-				this.dbContext
-				.Roles
-				.Where(x => model.Roles.Select(z => z.RoleName).Contains(x.RoleName)).ToList();
-
-				foreach (var role in getRolesFromDb)
-				{
-					User.UserRoles.Add(new UserRoles() { Role = role });
-
-				}
-
+				
 				this.dbContext.Users.Add(User);
 				this.dbContext.UserTokens.Add(userToken);
 				this.dbContext.SaveChanges();
@@ -129,7 +113,7 @@ namespace Services.Identity
 			}
 			return "";
 		}
-		public string EditUser(PersonModel model)
+		public string EditUser(EditPersonModel model)
 		{
 			try
 			{

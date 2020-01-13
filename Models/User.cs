@@ -11,7 +11,7 @@ namespace Models
 		public User()
 		{
 			UserTokens = new HashSet<UserToken>();
-			UserRoles = new HashSet<UserRoles>();
+			
 		}
 		[Required]
 		[StringLength(maximumLength: 50, MinimumLength = 5)]
@@ -25,10 +25,10 @@ namespace Models
 		[MaxLength(20)]
 		public string LastName { get; set; }
 
-		public Parent Parent { get; set; }
-		public Student Student { get; set; }
-		public Teacher Teacher { get; set; }
+		public virtual Parent Parent { get; set; }
+		public virtual Student Student { get; set; }
+		public virtual Teacher Teacher { get; set; }
 		public virtual ICollection<UserToken> UserTokens { get; set; }
-		public virtual ICollection<UserRoles> UserRoles { get; set; }
+	
 	}
 }

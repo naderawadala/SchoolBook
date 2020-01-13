@@ -5,17 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20191210145318_initial.cs" />
-    <Compile Remove="Migrations\20191210145318_initial.Designer.cs" />
-    <Compile Remove="Migrations\20191210145738_initial.cs" />
-    <Compile Remove="Migrations\20191210145738_initial.Designer.cs" />
-    <Compile Remove="Migrations\20191219171334_initial.cs" />
-    <Compile Remove="Migrations\20191219171334_initial.Designer.cs" />
-    <Compile Remove="Migrations\20191219174318_initial.cs" />
-    <Compile Remove="Migrations\20191219174318_initial.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>

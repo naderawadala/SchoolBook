@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,7 +26,9 @@ namespace Services.CustomModels.MapperSettings
 		{
 			public MappingProfile()
 			{
-
+				CreateMap<RegisterModel, User>();
+				CreateMap<EditPersonModel, User>();
+				CreateMap<Student, StudentModel>();
 			}
 		}
 	}

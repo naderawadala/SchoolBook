@@ -8,7 +8,7 @@ namespace Models
 {
 	public class Parent:BaseClass
 	{
-		public int? UserID;
+		public int? UserID { get; set; }
 		public User User { get; set; }
 		public ICollection<ParentStudent> ParentStudents { get; set; }
 	}

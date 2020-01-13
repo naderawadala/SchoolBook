@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Services.CustomModels
 {
-	public class LoginModel
+	public class StudentModel
 	{
-		[Required]
+		public int ID { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
 		public string Email { get; set; }
-		[Required]
-		public string Password { get; set; }
 	}
 }

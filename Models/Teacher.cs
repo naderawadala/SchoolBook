@@ -9,7 +9,7 @@ namespace Models
 {
 	public class Teacher:BaseClass
 	{
-		public int? UserID;
+		public int? UserID { get; set; }
 		public User User { get; set; }
 		public ICollection<TeacherSubject> TeacherSubjects { get; set; }
 	}

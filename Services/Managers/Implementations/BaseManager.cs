@@ -1,17 +1,18 @@
 ﻿using Data;
 using Microsoft.EntityFrameworkCore;
+using Services.Managers.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Services.Repositories
+namespace Services.Managers.Implementations
 {
-	public class BaseRepository<T> : IBaseRepository<T> where T : class
+	public class BaseManager<T> : IBaseManager<T> where T : class
 	{
 		private SchoolBookContext Context;
 		private DbSet<T> DbSet { get { return Context.Set<T>(); } }
-		public BaseRepository()
+		public BaseManager()
 		{
 			Context = new SchoolBookContext();
 		}
