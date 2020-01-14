@@ -21,6 +21,7 @@ namespace SchoolBook.Controllers
 		public ActionResult Test()
 		{
 			return Ok("Test passed");
+			// тегли swagger
 		}
         [HttpPost]
 		[Route("register")]

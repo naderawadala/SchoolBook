@@ -23,6 +23,9 @@ namespace Data
 		public DbSet<Teacher> Teachers { get; set; }
 		public DbSet<User> Users { get; set; }
 		public DbSet<UserToken> UserTokens { get; set; }
+
+		public DbSet<TeacherSubject> TeacherSubjects { get; set; }
+		public DbSet<ParentStudent> ParentStudents { get; set; }
 		#endregion
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

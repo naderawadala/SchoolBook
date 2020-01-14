@@ -18,6 +18,7 @@ using Services.Managers.Interfaces;
 using Services.Identity.Implementations;
 using Data;
 using Services.CustomModels;
+using Microsoft.OpenApi.Models;
 
 namespace WebApplication
 {
@@ -62,6 +63,10 @@ namespace WebApplication
 			services.AddAutoMapper(typeof(Startup));
 			services.AddControllers();
 
+			services.AddSwaggerGen(c =>
+			{
+				c.SwaggerDoc("v1", new OpenApiInfo { Title = "SchoolBook", Version = "v1" });
+			});
 
 			services.AddScoped<SchoolBookContext>();
 			services.AddScoped<IUserManager, UserManager>();
@@ -76,6 +81,13 @@ namespace WebApplication
 			}
 
 			app.UseHttpsRedirection();
+
+			app.UseSwagger();
+
+			app.UseSwaggerUI(c =>
+			{
+				c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+			});
 
 			app.UseRouting();
 			

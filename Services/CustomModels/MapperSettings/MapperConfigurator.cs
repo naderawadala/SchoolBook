@@ -27,6 +27,7 @@ namespace Services.CustomModels.MapperSettings
 			public MappingProfile()
 			{
 				CreateMap<RegisterModel, User>();
+				CreateMap<LoginModel, User>();
 				CreateMap<EditPersonModel, User>();
 				CreateMap<Student, StudentModel>();
 			}
