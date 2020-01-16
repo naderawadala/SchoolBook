@@ -55,5 +55,12 @@ namespace SchoolBook.Controllers
 		{
 			return Ok("boi u did it");
 		}
-    }
+		[HttpPost]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+		[Route("delete")]
+		public IActionResult Edit(int id)
+		{
+			return Ok("boi u did it");
+		}
+	}
 }

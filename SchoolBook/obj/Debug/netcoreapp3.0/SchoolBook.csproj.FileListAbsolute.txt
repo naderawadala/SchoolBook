@@ -273,10 +273,6 @@ B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\De
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\SchoolBook.StaticWebAssets.xml
-B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\EntityFramework.SqlServer.dll
-B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\EntityFramework.dll
-B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Microsoft.AspNet.Identity.Core.dll
-B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Microsoft.AspNet.Identity.EntityFramework.dll
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 B:\University\YEAR 2\SEMESTER 3\Courseworks\WEB API\SchoolBook\SchoolBook\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

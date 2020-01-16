@@ -6,12 +6,12 @@ using System.Text;
 
 namespace Models
 {
-	public class Role : BaseClass
+	public static class Role
 	{
-		[Required]
-		[MinLength(2)]
-		[MaxLength(10)]
-		public string RoleName { get; set; }
-		public virtual ICollection<UserRole> UserRoles { get; set; }
+		public const string Admin = "Admin";
+		public const string Parent = "Parent";
+		public const string Student = "Student";
+		public const string Teacher = "Teacher";
+		public const string User = "User";
 	}
 }

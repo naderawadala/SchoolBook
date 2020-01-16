@@ -4,12 +4,12 @@ using Models.BaseModels;
 using Models.JoiningModels;
 using System;
 using System.Linq;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 
 
 namespace Data
 {
-	public class SchoolBookContext : IdentityDbContext
+	public class SchoolBookContext : DbContext
 	{
 		public SchoolBookContext() { }
 		public SchoolBookContext(DbContextOptions options) : base(options)
@@ -45,6 +45,7 @@ namespace Data
 			modelBuilder.Entity<Subject>().HasMany(x => x.TeacherSubjects).WithOne(x => x.Subject).OnDelete(DeleteBehavior.Restrict);
 			modelBuilder.Entity<TeacherSubject>().HasKey(k => new { k.TeacherID, k.SubjectID });
 
+			
 		}
 
 		public override int SaveChanges()

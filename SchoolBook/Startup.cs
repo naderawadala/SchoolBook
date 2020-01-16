@@ -15,7 +15,7 @@ using Services.Identity.Implementations;
 using Data;
 using Services.CustomModels;
 using Microsoft.OpenApi.Models;
-
+using System.Linq;
 
 namespace WebApplication
 {
@@ -35,9 +35,7 @@ namespace WebApplication
 			services.Configure<TokenModel>(Configuration.GetSection("tokenManagement"));
 			var token = Configuration.GetSection("tokenManagement").Get<TokenModel>();
 
-			services.AddDefaultIdentity<IdentityUser>()
-				.AddRoles<IdentityRole>()
-				.AddEntityFrameworkStores<SchoolBookContext>();
+			
 			
 			services.AddAuthentication(x =>
 			{
@@ -70,7 +68,8 @@ namespace WebApplication
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "SchoolBook", Version = "v1" });
-			
+				c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+
 				c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
 				{
 					Description = "JWT authorization",
@@ -103,12 +102,12 @@ namespace WebApplication
 			app.UseHttpsRedirection();
 
 			app.UseSwagger();
-
-			
 			app.UseSwaggerUI(c =>
 			{
-				c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+				c.SwaggerEndpoint("./v1/swagger.json", "SchoolBook V1"); 
 			});
+
+			
 
 			app.UseRouting();
 

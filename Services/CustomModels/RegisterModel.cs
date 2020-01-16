@@ -29,6 +29,6 @@ namespace Services.CustomModels
 		public string FirstName { get; set; }
 		[Required]
 		public string LastName { get; set; }
-		//public ICollection<Role> Roles { get; set; }
+
 	}
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -10,7 +12,7 @@ using Services.Managers.Interfaces;
 
 namespace SchoolBook.Controllers
 {
-    [Route("api/student")]
+    [Route("api/parent")]
     [ApiController]
     public class ParentController : ControllerBase
     {
@@ -21,6 +23,7 @@ namespace SchoolBook.Controllers
 		}
 		[HttpPost]
 		[Route("childgrade")]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Parent")]
 		public IActionResult GetChildGrades(int parentID)
 		{
 			Parent parent = manager.GetByID(parentID);

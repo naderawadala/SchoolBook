@@ -8,6 +8,9 @@ namespace Services.Managers.Implementations
 	public class TeacherManager:BaseManager<Teacher>
 	{
 		// let a teacher set a grade to a student only to his subjects
+		public void SetGrade()
+		{
 
+		}
 	}
 }

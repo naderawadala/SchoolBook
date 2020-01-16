@@ -7,12 +7,12 @@ using System.Text;
 namespace Models
 {
 	public class User : BaseClass
-	{
+	{/*
 		public User()
 		{
 			UserTokens = new HashSet<UserToken>();
 			
-		}
+		}*/
 		[Required]
 		[StringLength(maximumLength: 50, MinimumLength = 5)]
 		public string Email { get; set; }
@@ -24,11 +24,10 @@ namespace Models
 		[Required(ErrorMessage = "Last name is required!")]
 		[MaxLength(20)]
 		public string LastName { get; set; }
-
 		public virtual Parent Parent { get; set; }
 		public virtual Student Student { get; set; }
 		public virtual Teacher Teacher { get; set; }
 		public virtual ICollection<UserToken> UserTokens { get; set; }
-		public virtual ICollection<UserRole> UserRoles { get; set; }
+		public string? Role { get; set; }
 	}
 }

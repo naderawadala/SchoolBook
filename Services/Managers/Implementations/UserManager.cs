@@ -27,19 +27,17 @@ namespace Services.Identity.Implementations
 			this.dbContext = data;
 			this._tokenManagement = tokenManagement.Value;
 		}
-		private bool IsValidUser(LoginModel model)
+		private User GetUser(LoginModel model)
 		{
-			var currentUser = this.dbContext.Users.SingleOrDefault(x => x.Email == model.Email);
+			var user = this.dbContext.Users.SingleOrDefault(x => x.Email == model.Email);
 
-			if (currentUser != null)
+			if (user != null && this.VerifyHashedPassword(user.Password,model.Password))
 			{
-				var res = this.VerifyHashedPassword(currentUser.Password, model.Password);
-				User = currentUser;
-				return res;
+				return user;
 			}
 			else
 			{
-				return false;
+				return null;
 			}
 		}
 		private bool isRegistered(string email)
@@ -57,7 +55,8 @@ namespace Services.Identity.Implementations
 
 			var claim = new List<Claim>()
 			{
-			  new Claim(ClaimTypes.Email, request.Email)
+			  new Claim(ClaimTypes.Email, request.Email),
+			  new Claim(ClaimTypes.Role, request.Role)
 			};
 			
 			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenManagement.Secret));
@@ -76,12 +75,14 @@ namespace Services.Identity.Implementations
 		}
 		public string LoginUser(LoginModel model)
 		{
-			if (this.IsValidUser(model))
+			User user = GetUser(model);
+			if (user!=null)
 			{
-				var token = this.GenerateUserToken(new RequestTokenModel() { Email = model.Email });
+				var token = this.GenerateUserToken(new RequestTokenModel() { Email = user.Email, Role=user.Role });
 				if (token.Length > 0)
 				{
-					dbContext.UserTokens.Add(new UserToken() { Token = token, User = User });
+					var userToken = new UserToken() { Token = token, UserId=user.ID };
+					dbContext.UserTokens.Add(userToken);
 					dbContext.SaveChanges();
 
 					return token;
@@ -95,13 +96,13 @@ namespace Services.Identity.Implementations
 			if (this.isRegistered(model.Email) == false)
 			{
 				User = new User();
-
-				var token = GenerateUserToken(new RequestTokenModel() { Email = model.Email });
-
+				
+				var token = GenerateUserToken(new RequestTokenModel() { Email = model.Email, Role=Role.User });
+				
 				User = MapperConfigurator.Mapper.Map<User>(model);
 
 				User.Password = HashPassword(model.Password);
-
+				User.Role = Role.User;
 				var userToken = new UserToken() { Token = token, User = User };
 				
 				this.dbContext.Users.Add(User);
@@ -132,7 +133,7 @@ namespace Services.Identity.Implementations
 					getUser.Email = model.Email;
 					getUser.FirstName = model.FirstName;
 					getUser.LastName = model.LastName;
-					
+					getUser.Role = model.Role;
 
 					var checkPasswordChange = VerifyHashedPassword(getUser.Password, model.Password);
 					if (checkPasswordChange == false)

@@ -15,7 +15,7 @@ namespace Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.0")
+                .HasAnnotation("ProductVersion", "3.1.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -62,7 +62,7 @@ namespace Data.Migrations
 
                     b.HasIndex("StudentID");
 
-                    b.ToTable("ParentStudent");
+                    b.ToTable("ParentStudents");
                 });
 
             modelBuilder.Entity("Models.JoiningModels.TeacherSubject", b =>
@@ -77,7 +77,7 @@ namespace Data.Migrations
 
                     b.HasIndex("SubjectID");
 
-                    b.ToTable("TeacherSubject");
+                    b.ToTable("TeacherSubjects");
                 });
 
             modelBuilder.Entity("Models.Parent", b =>
@@ -206,6 +206,9 @@ namespace Data.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
