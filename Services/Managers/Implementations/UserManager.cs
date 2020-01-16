@@ -132,6 +132,7 @@ namespace Services.Identity.Implementations
 					getUser.Email = model.Email;
 					getUser.FirstName = model.FirstName;
 					getUser.LastName = model.LastName;
+					
 
 					var checkPasswordChange = VerifyHashedPassword(getUser.Password, model.Password);
 					if (checkPasswordChange == false)

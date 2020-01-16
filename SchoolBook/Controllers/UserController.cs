@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
 using Services.CustomModels;
 using Services.Managers.Interfaces;
 
@@ -44,6 +47,13 @@ namespace SchoolBook.Controllers
 				return Ok(result);
 			}
 			return Unauthorized();
+		}
+		[HttpPost]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+		[Route("delete")]
+		public IActionResult Delete(int id)
+		{
+			return Ok("boi u did it");
 		}
     }
 }

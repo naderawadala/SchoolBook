@@ -29,6 +29,6 @@ namespace Models
 		public virtual Student Student { get; set; }
 		public virtual Teacher Teacher { get; set; }
 		public virtual ICollection<UserToken> UserTokens { get; set; }
-	
+		public virtual ICollection<UserRole> UserRoles { get; set; }
 	}
 }

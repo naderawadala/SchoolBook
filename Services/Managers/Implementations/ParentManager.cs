@@ -2,6 +2,7 @@
 using Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Services.Managers.Implementations
@@ -14,10 +15,10 @@ namespace Services.Managers.Implementations
 		{
 			this.dbContext = dbContext;
 		}
-		public List<Grade> GetChildGrades()
+		public List<Grade> GetChildGrades(Parent parent)
 		{
-			//dbContext.ParentStudents
-			return null;
+			Student student = (Student)dbContext.ParentStudents.Where(x => x.ParentID == parent.ID).Select(x => x.Student);
+			return student.Grades.ToList();
 		}
 	}
 }

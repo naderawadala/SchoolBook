@@ -4,10 +4,12 @@ using Models.BaseModels;
 using Models.JoiningModels;
 using System;
 using System.Linq;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 
 namespace Data
 {
-	public class SchoolBookContext : DbContext
+	public class SchoolBookContext : IdentityDbContext
 	{
 		public SchoolBookContext() { }
 		public SchoolBookContext(DbContextOptions options) : base(options)

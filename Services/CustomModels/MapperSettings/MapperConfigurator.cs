@@ -28,6 +28,8 @@ namespace Services.CustomModels.MapperSettings
 			{
 				CreateMap<RegisterModel, User>();
 				CreateMap<LoginModel, User>();
+				CreateMap<Role, RoleModel>();
+				CreateMap<RoleModel, Role>();
 				CreateMap<EditPersonModel, User>();
 				CreateMap<Student, StudentModel>();
 			}

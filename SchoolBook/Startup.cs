@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using AutoMapper;
 using Services.Managers.Interfaces;
@@ -20,6 +16,7 @@ using Data;
 using Services.CustomModels;
 using Microsoft.OpenApi.Models;
 
+
 namespace WebApplication
 {
 	public class Startup
@@ -27,7 +24,7 @@ namespace WebApplication
 		public Startup(IConfiguration configuration)
 		{
 			Configuration = configuration;
-		
+
 		}
 
 		public IConfiguration Configuration { get; }
@@ -37,37 +34,60 @@ namespace WebApplication
 		{
 			services.Configure<TokenModel>(Configuration.GetSection("tokenManagement"));
 			var token = Configuration.GetSection("tokenManagement").Get<TokenModel>();
-			var secret = Encoding.ASCII.GetBytes(token.Secret);
 
-			services.AddAuthentication(opt =>
+			services.AddDefaultIdentity<IdentityUser>()
+				.AddRoles<IdentityRole>()
+				.AddEntityFrameworkStores<SchoolBookContext>();
+			
+			services.AddAuthentication(x =>
 			{
-				opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-				opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+				x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+				x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+				x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 			})
 	.AddJwtBearer(options =>
 	{
+		options.SaveToken = true;
 		options.TokenValidationParameters = new TokenValidationParameters
 		{
-			ValidateIssuer = true,
-			ValidateAudience = true,
-			ValidateLifetime = true,
 			ValidateIssuerSigningKey = true,
+			IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.Secret)),
+			ValidateIssuer = false,
+			ValidateAudience = false,
+			ValidateLifetime = true,
 
 			ValidIssuer = "http://localhost:5000",
 			ValidAudience = "http://localhost:5000",
-			IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
 		};
 	});
 			services.AddRouting();
-			
+
 			services.AddAutoMapper(typeof(Startup));
 			services.AddControllers();
+			services.AddAuthorization();
+			
 
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "SchoolBook", Version = "v1" });
+			
+				c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+				{
+					Description = "JWT authorization",
+					Name="Authorization",
+					In=ParameterLocation.Header,
+					Type=SecuritySchemeType.ApiKey
+				});
+				c.AddSecurityRequirement(new OpenApiSecurityRequirement
+				{
+					{new OpenApiSecurityScheme{Reference = new OpenApiReference
+					{
+						Id = "Bearer",
+						Type = ReferenceType.SecurityScheme
+					}}, new List<string>()}
+				});
 			});
-
+			
 			services.AddScoped<SchoolBookContext>();
 			services.AddScoped<IUserManager, UserManager>();
 		}
@@ -84,20 +104,22 @@ namespace WebApplication
 
 			app.UseSwagger();
 
+			
 			app.UseSwaggerUI(c =>
 			{
 				c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
 			});
 
 			app.UseRouting();
-			
+
 			app.UseAuthentication();
 			app.UseAuthorization();
-			
+
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllers();
 			});
 		}
+	
 	}
 }
