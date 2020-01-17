@@ -59,7 +59,7 @@ namespace Data.Migrations
                         column: x => x.UserID,
                         principalTable: "Users",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -80,7 +80,7 @@ namespace Data.Migrations
                         column: x => x.UserID,
                         principalTable: "Users",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -101,7 +101,7 @@ namespace Data.Migrations
                         column: x => x.UserID,
                         principalTable: "Users",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -208,8 +208,8 @@ namespace Data.Migrations
                 columns: new[] { "ID", "DateCreated", "DateModified", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7835), new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7854), "Subject1" },
-                    { 2, new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(8709), new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(8728), "Subject2" }
+                    { 1, new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(4937), new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(4971), "Subject1" },
+                    { 2, new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(6664), new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(6698), "Subject2" }
                 });
 
             migrationBuilder.InsertData(
@@ -217,26 +217,26 @@ namespace Data.Migrations
                 columns: new[] { "ID", "DateCreated", "DateModified", "Email", "FirstName", "LastName", "Password", "Role" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2020, 1, 17, 23, 34, 35, 411, DateTimeKind.Local).AddTicks(5775), new DateTime(2020, 1, 17, 23, 34, 35, 414, DateTimeKind.Local).AddTicks(7924), "Admin@gmail.com", "Admin", "Admin", "AGjAOuKvnzJuYEeRQUIryVPnEexaemytkIm9hwNJuZdsPIzHTFqNfelxmRiCqB0chg==", "Admin" },
-                    { 2, new DateTime(2020, 1, 17, 23, 34, 35, 422, DateTimeKind.Local).AddTicks(2622), new DateTime(2020, 1, 17, 23, 34, 35, 422, DateTimeKind.Local).AddTicks(2689), "Parent@gmail.com", "Parent", "Parent", "AAzDep7mVeSMnZ2x2uAgSuGQ02J9Y3aBehkMs+Ggkfr6cMgXUW2sE5xQATNamA8MAQ==", "Parent" },
-                    { 3, new DateTime(2020, 1, 17, 23, 34, 35, 423, DateTimeKind.Local).AddTicks(5409), new DateTime(2020, 1, 17, 23, 34, 35, 423, DateTimeKind.Local).AddTicks(5428), "Student@gmail.com", "Student", "Student", "AEGcEjJdZSqJ2xK3bTKAmsf1iEo8s27+hblcJiE76JwXbiHMReitSWy8UNFw/mRAzA==", "Student" },
-                    { 4, new DateTime(2020, 1, 17, 23, 34, 35, 424, DateTimeKind.Local).AddTicks(6646), new DateTime(2020, 1, 17, 23, 34, 35, 424, DateTimeKind.Local).AddTicks(6654), "Teacher@gmail.com", "Teacher", "Teacher", "AHuAzm8XOlKPfer7BVUi4vc+fVnTa5fQR9pY79+xQ2T7xok8m2FUYAiQC8RXd96WVg==", "Teacher" },
-                    { 5, new DateTime(2020, 1, 17, 23, 34, 35, 425, DateTimeKind.Local).AddTicks(8338), new DateTime(2020, 1, 17, 23, 34, 35, 425, DateTimeKind.Local).AddTicks(8357), "Student2@gmail.com", "Student2", "Student2", "AGs0njTg6V0GHnaT1mnzRqyA8sPXCHbbgi1rNz03uJ4/ZhD/RjmyLFfXoicB1I+UcA==", "Student" },
-                    { 6, new DateTime(2020, 1, 17, 23, 34, 35, 426, DateTimeKind.Local).AddTicks(9576), new DateTime(2020, 1, 17, 23, 34, 35, 426, DateTimeKind.Local).AddTicks(9584), "Teacher2@gmail.com", "Teacher2", "Teacher2", "ABRw2XNXpsfn9al7CUoKTmoMILTvoEehzkiqRaX9OOdkUHCfeL1Uzq2ybcOBYWIArQ==", "Teacher" }
+                    { 1, new DateTime(2020, 1, 17, 23, 43, 17, 565, DateTimeKind.Local).AddTicks(752), new DateTime(2020, 1, 17, 23, 43, 17, 570, DateTimeKind.Local).AddTicks(5109), "Admin@gmail.com", "Admin", "Admin", "ANqMth9WF4REuoUUowdBs2Pnoc9ZK9y9GgIMW63SWhKsyYB9qoQ8ByBi/98GIXi8zg==", "Admin" },
+                    { 2, new DateTime(2020, 1, 17, 23, 43, 17, 584, DateTimeKind.Local).AddTicks(5185), new DateTime(2020, 1, 17, 23, 43, 17, 584, DateTimeKind.Local).AddTicks(5282), "Parent@gmail.com", "Parent", "Parent", "AFvFBV3GCZmwUmAb5mnyJrRKulG021592Jm6dhJdVenh0IU+DqrHg6hX+G0X1L5Daw==", "Parent" },
+                    { 3, new DateTime(2020, 1, 17, 23, 43, 17, 587, DateTimeKind.Local).AddTicks(3745), new DateTime(2020, 1, 17, 23, 43, 17, 587, DateTimeKind.Local).AddTicks(3827), "Student@gmail.com", "Student", "Student", "ACgs/saQL11zLQ4gw+OYfjyETwb6T9jcmSicEg0mqOJc/Fu3djSx+5hQg1BNiHH/NA==", "Student" },
+                    { 4, new DateTime(2020, 1, 17, 23, 43, 17, 589, DateTimeKind.Local).AddTicks(9711), new DateTime(2020, 1, 17, 23, 43, 17, 589, DateTimeKind.Local).AddTicks(9782), "Teacher@gmail.com", "Teacher", "Teacher", "ADrGDm7yKg+EY8vZNTb/AjMYrnRs1GxETL+a7b+YHGhqfPJffttYN7bOzFEYR3cf2g==", "Teacher" },
+                    { 5, new DateTime(2020, 1, 17, 23, 43, 17, 592, DateTimeKind.Local).AddTicks(3257), new DateTime(2020, 1, 17, 23, 43, 17, 592, DateTimeKind.Local).AddTicks(3304), "Student2@gmail.com", "Student2", "Student2", "ADeKWpaYlG3cBMPY/qhJk/LeTpg5fG32f8UQN1vHLWqiPeEUjjbQUen48480MgWuzQ==", "Student" },
+                    { 6, new DateTime(2020, 1, 17, 23, 43, 17, 594, DateTimeKind.Local).AddTicks(7386), new DateTime(2020, 1, 17, 23, 43, 17, 594, DateTimeKind.Local).AddTicks(7455), "Teacher2@gmail.com", "Teacher2", "Teacher2", "AAsNIMulwiepfddle6TLGAFLDgsRuI5NqQBpMitTy06OLpRfY7DSNK6c88bwgp4GYQ==", "Teacher" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Parents",
                 columns: new[] { "ID", "DateCreated", "DateModified", "UserID" },
-                values: new object[] { 1, new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(2848), new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(2871), 2 });
+                values: new object[] { 1, new DateTime(2020, 1, 17, 23, 43, 17, 597, DateTimeKind.Local).AddTicks(5075), new DateTime(2020, 1, 17, 23, 43, 17, 597, DateTimeKind.Local).AddTicks(5148), 2 });
 
             migrationBuilder.InsertData(
                 table: "Students",
                 columns: new[] { "ID", "DateCreated", "DateModified", "UserID" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(4595), new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(4616), 3 },
-                    { 2, new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7072), new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7092), 5 }
+                    { 1, new DateTime(2020, 1, 17, 23, 43, 17, 597, DateTimeKind.Local).AddTicks(8697), new DateTime(2020, 1, 17, 23, 43, 17, 597, DateTimeKind.Local).AddTicks(8769), 3 },
+                    { 2, new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(3509), new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(3546), 5 }
                 });
 
             migrationBuilder.InsertData(
@@ -244,8 +244,8 @@ namespace Data.Migrations
                 columns: new[] { "ID", "DateCreated", "DateModified", "UserID" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(6153), new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(6174), 4 },
-                    { 2, new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7159), new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7165), 6 }
+                    { 1, new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(1747), new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(1794), 4 },
+                    { 2, new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(3687), new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(3702), 6 }
                 });
 
             migrationBuilder.InsertData(
@@ -253,8 +253,8 @@ namespace Data.Migrations
                 columns: new[] { "ID", "DateCreated", "DateModified", "Score", "StudentID", "SubjectID" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2020, 1, 17, 23, 34, 35, 429, DateTimeKind.Local).AddTicks(1600), new DateTime(2020, 1, 17, 23, 34, 35, 429, DateTimeKind.Local).AddTicks(1622), 5.0, 1, 1 },
-                    { 2, new DateTime(2020, 1, 17, 23, 34, 35, 429, DateTimeKind.Local).AddTicks(4073), new DateTime(2020, 1, 17, 23, 34, 35, 429, DateTimeKind.Local).AddTicks(4094), 5.0, 2, 2 }
+                    { 1, new DateTime(2020, 1, 17, 23, 43, 17, 599, DateTimeKind.Local).AddTicks(2855), new DateTime(2020, 1, 17, 23, 43, 17, 599, DateTimeKind.Local).AddTicks(2904), 5.0, 1, 1 },
+                    { 2, new DateTime(2020, 1, 17, 23, 43, 17, 599, DateTimeKind.Local).AddTicks(7018), new DateTime(2020, 1, 17, 23, 43, 17, 599, DateTimeKind.Local).AddTicks(7059), 5.0, 2, 2 }
                 });
 
             migrationBuilder.InsertData(
