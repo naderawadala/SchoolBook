@@ -1,7 +1,9 @@
 ﻿using Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Models;
+using System.Collections.Generic;
 using Services.Common;
 using Services.CustomModels;
 using Services.CustomModels.MapperSettings;
@@ -22,57 +24,14 @@ namespace Services.Identity.Implementations
 		private readonly TokenModel _tokenManagement;
 		private SchoolBookContext dbContext;
 		private User User;
+		
 		public UserManager(SchoolBookContext data, IOptions<TokenModel> tokenManagement)
 		{
 			this.dbContext = data;
 			this._tokenManagement = tokenManagement.Value;
 		}
-		private User GetUser(LoginModel model)
-		{
-			var user = this.dbContext.Users.SingleOrDefault(x => x.Email == model.Email);
-
-			if (user != null && this.VerifyHashedPassword(user.Password,model.Password))
-			{
-				return user;
-			}
-			else
-			{
-				return null;
-			}
-		}
-		private bool isRegistered(string email)
-		{
-			var check = this.dbContext.Users.SingleOrDefault(x => x.Email == email);
-			if (check != null)
-			{
-				return true;
-			}
-			return false;
-		}
-		private string GenerateUserToken(RequestTokenModel request)
-		{
-			string token = string.Empty;
-
-			var claim = new List<Claim>()
-			{
-			  new Claim(ClaimTypes.Email, request.Email),
-			  new Claim(ClaimTypes.Role, request.Role)
-			};
-			
-			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenManagement.Secret));
-			var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-			var jwtToken = new JwtSecurityToken(
-				_tokenManagement.Issuer,
-				_tokenManagement.Audience,
-				claim,
-				expires: DateTime.Now.AddMinutes(_tokenManagement.AccessExpiration),
-				signingCredentials: credentials
-			);
-
-			token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
-			return token;
-		}
+		protected DbSet<User> DbSet { get { return dbContext.Set<User>(); } }
+	
 		public string LoginUser(LoginModel model)
 		{
 			User user = GetUser(model);
@@ -88,8 +47,7 @@ namespace Services.Identity.Implementations
 					return token;
 				}
 			}
-
-			return "";
+			return "User not found";
 		}
 		public string Register(RegisterModel model)
 		{
@@ -112,64 +70,45 @@ namespace Services.Identity.Implementations
 				return token;
 
 			}
-			return "";
+			return "Problem with registration, try again";
 		}
-		public string EditUser(EditPersonModel model)
+		public bool EditUser(EditPersonModel model)
 		{
-			try
+			var getUser = DbSet.SingleOrDefault(x => x.ID == model.ID);
+			if (getUser == null)
 			{
-				using (dbContext = new SchoolBookContext())
-				{
-					var getUser = dbContext.Users.SingleOrDefault(x => x.ID == model.ID);
-					//getUser = MapperConfigurator.Mapper.Map<User>(model);
-					if (getUser.Email != model.Email)
-					{
-						var checkEmail = dbContext.Users.Where(x => x.Email == model.Email).FirstOrDefault();
-						if (checkEmail != null)
-						{
-							return Messages.EmailExists;
-						}
-					}
-					getUser.Email = model.Email;
-					getUser.FirstName = model.FirstName;
-					getUser.LastName = model.LastName;
-					getUser.Role = model.Role;
-
-					var checkPasswordChange = VerifyHashedPassword(getUser.Password, model.Password);
-					if (checkPasswordChange == false)
-					{
-						getUser.Password = HashPassword(model.Password);
-					}
-
-					dbContext.Update(getUser);
-					dbContext.SaveChanges();
-					return "";
-				}
+				return false;
 			}
-			catch (Exception e)
+			getUser.Email = model.Email;
+			getUser.FirstName = model.FirstName;
+			getUser.LastName = model.LastName;
+			getUser.Role = model.Role;
+
+			var checkPasswordChange = VerifyHashedPassword(getUser.Password, model.Password);
+			if (checkPasswordChange == false)
 			{
-
-				throw new Exception(e.Message);
+				getUser.Password = HashPassword(model.Password);
 			}
+
+			dbContext.Update(getUser);
+			dbContext.SaveChanges();
+			return true;
 		}
-		public string DeleteUser(int id)
+
+		public bool DeleteUser(int id)
 		{
-			try
+			var user = DbSet.SingleOrDefault(x => x.ID == id);
+			if (user == null)
 			{
-				using (dbContext = new SchoolBookContext())
-				{
-					var entity = dbContext.Users.FirstOrDefault(x => x.ID == id);
-
-					dbContext.Remove(entity);
-					dbContext.SaveChanges();
-					return "";
-				}
+				return false;
 			}
-			catch (Exception e)
-			{
-
-				throw new Exception(e.Message);
-			}
+			dbContext.Remove(user);
+			dbContext.SaveChanges();
+			return true;
+		}
+		public List<User> GetAll()
+		{
+			return DbSet.ToList();
 		}
 		private bool VerifyHashedPassword(string hashedPassword, string password)
 		{
@@ -220,6 +159,52 @@ namespace Services.Identity.Implementations
 			Buffer.BlockCopy(salt, 0, dst, 1, 0x10);
 			Buffer.BlockCopy(buffer2, 0, dst, 0x11, 0x20);
 			return Convert.ToBase64String(dst);
+		}
+		private User GetUser(LoginModel model)
+		{
+			var user = DbSet.SingleOrDefault(x => x.Email == model.Email);
+
+			if (user != null && this.VerifyHashedPassword(user.Password, model.Password))
+			{
+				return user;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		private bool isRegistered(string email)
+		{
+			var check = DbSet.SingleOrDefault(x => x.Email == email);
+			if (check != null)
+			{
+				return true;
+			}
+			return false;
+		}
+		private string GenerateUserToken(RequestTokenModel request)
+		{
+			string token = string.Empty;
+
+			var claim = new List<Claim>()
+			{
+			  new Claim(ClaimTypes.Email, request.Email),
+			  new Claim(ClaimTypes.Role, request.Role)
+			};
+
+			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenManagement.Secret));
+			var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+			var jwtToken = new JwtSecurityToken(
+				_tokenManagement.Issuer,
+				_tokenManagement.Audience,
+				claim,
+				expires: DateTime.Now.AddMinutes(_tokenManagement.AccessExpiration),
+				signingCredentials: credentials
+			);
+
+			token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
+			return token;
 		}
 	}
 }

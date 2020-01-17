@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(SchoolBookContext))]
-    [Migration("20200116185245_init")]
+    [Migration("20200117083624_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,10 +37,10 @@ namespace Data.Migrations
                     b.Property<double>("Score")
                         .HasColumnType("float");
 
-                    b.Property<int>("StudentID")
+                    b.Property<int?>("StudentID")
                         .HasColumnType("int");
 
-                    b.Property<int>("SubjectID")
+                    b.Property<int?>("SubjectID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -50,6 +50,26 @@ namespace Data.Migrations
                     b.HasIndex("SubjectID");
 
                     b.ToTable("Grades");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 481, DateTimeKind.Local).AddTicks(6284),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 481, DateTimeKind.Local).AddTicks(6315),
+                            Score = 5.0,
+                            StudentID = 1,
+                            SubjectID = 1
+                        },
+                        new
+                        {
+                            ID = 2,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 482, DateTimeKind.Local).AddTicks(16),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 482, DateTimeKind.Local).AddTicks(45),
+                            Score = 5.0,
+                            StudentID = 2,
+                            SubjectID = 2
+                        });
                 });
 
             modelBuilder.Entity("Models.JoiningModels.ParentStudent", b =>
@@ -65,6 +85,18 @@ namespace Data.Migrations
                     b.HasIndex("StudentID");
 
                     b.ToTable("ParentStudents");
+
+                    b.HasData(
+                        new
+                        {
+                            ParentID = 1,
+                            StudentID = 1
+                        },
+                        new
+                        {
+                            ParentID = 1,
+                            StudentID = 2
+                        });
                 });
 
             modelBuilder.Entity("Models.JoiningModels.TeacherSubject", b =>
@@ -80,6 +112,23 @@ namespace Data.Migrations
                     b.HasIndex("SubjectID");
 
                     b.ToTable("TeacherSubjects");
+
+                    b.HasData(
+                        new
+                        {
+                            TeacherID = 2,
+                            SubjectID = 1
+                        },
+                        new
+                        {
+                            TeacherID = 2,
+                            SubjectID = 2
+                        },
+                        new
+                        {
+                            TeacherID = 1,
+                            SubjectID = 1
+                        });
                 });
 
             modelBuilder.Entity("Models.Parent", b =>
@@ -105,6 +154,15 @@ namespace Data.Migrations
                         .HasFilter("[UserID] IS NOT NULL");
 
                     b.ToTable("Parents");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(647),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(708),
+                            UserID = 2
+                        });
                 });
 
             modelBuilder.Entity("Models.Student", b =>
@@ -130,6 +188,22 @@ namespace Data.Migrations
                         .HasFilter("[UserID] IS NOT NULL");
 
                     b.ToTable("Students");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(4014),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(4050),
+                            UserID = 3
+                        },
+                        new
+                        {
+                            ID = 2,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(8605),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(8637),
+                            UserID = 5
+                        });
                 });
 
             modelBuilder.Entity("Models.Subject", b =>
@@ -151,6 +225,22 @@ namespace Data.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Subjects");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(9937),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(9967),
+                            Name = "Subject1"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 481, DateTimeKind.Local).AddTicks(1434),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 481, DateTimeKind.Local).AddTicks(1463),
+                            Name = "Subject2"
+                        });
                 });
 
             modelBuilder.Entity("Models.Teacher", b =>
@@ -176,6 +266,22 @@ namespace Data.Migrations
                         .HasFilter("[UserID] IS NOT NULL");
 
                     b.ToTable("Teachers");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(6694),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(6727),
+                            UserID = 4
+                        },
+                        new
+                        {
+                            ID = 2,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(8775),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(8787),
+                            UserID = 6
+                        });
                 });
 
             modelBuilder.Entity("Models.User", b =>
@@ -216,6 +322,74 @@ namespace Data.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 434, DateTimeKind.Local).AddTicks(6153),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 439, DateTimeKind.Local).AddTicks(8763),
+                            Email = "Admin@gmail.com",
+                            FirstName = "Admin",
+                            LastName = "Admin",
+                            Password = "AMnHRwYCX1I3KuWctiQLv2HpsZ1Vj9yA1gJngmvNI0A9W02GsQJycUY6fnJOR99FlQ==",
+                            Role = "Admin"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 469, DateTimeKind.Local).AddTicks(9023),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 469, DateTimeKind.Local).AddTicks(9101),
+                            Email = "Parent@gmail.com",
+                            FirstName = "Parent",
+                            LastName = "Parent",
+                            Password = "ALYgCHthIKBQTZK0LYENw/YPXH5NNHH1tmofpIXgFKf6ZmjfJqOWOrrXeBvqfg4YSQ==",
+                            Role = "Parent"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 472, DateTimeKind.Local).AddTicks(1338),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 472, DateTimeKind.Local).AddTicks(1394),
+                            Email = "Student@gmail.com",
+                            FirstName = "Student",
+                            LastName = "Student",
+                            Password = "AP3cinWj6ZZNu+/+MBNJ/Qvldymc2ih5k3mLDoltiII5Og3fBqdmkFbgP2k+D+u+Kg==",
+                            Role = "Student"
+                        },
+                        new
+                        {
+                            ID = 4,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 473, DateTimeKind.Local).AddTicks(4629),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 473, DateTimeKind.Local).AddTicks(4658),
+                            Email = "Teacher@gmail.com",
+                            FirstName = "Teacher",
+                            LastName = "Teacher",
+                            Password = "AI9gIeponffvPbbkkf7rkpJ+8eMIQZljBWHTsqC0KpkPKvrBrZCl8Xya/8yQBVxxbw==",
+                            Role = "Teacher"
+                        },
+                        new
+                        {
+                            ID = 5,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 474, DateTimeKind.Local).AddTicks(8855),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 474, DateTimeKind.Local).AddTicks(8918),
+                            Email = "Student2@gmail.com",
+                            FirstName = "Student2",
+                            LastName = "Student2",
+                            Password = "AHb4rvWapfJeOXcgBFRfMNg/X34W+IAF+hnQTnXJ/yidEsGyBN7MMvhPFttCXdmh4g==",
+                            Role = "Student"
+                        },
+                        new
+                        {
+                            ID = 6,
+                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 477, DateTimeKind.Local).AddTicks(3488),
+                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 477, DateTimeKind.Local).AddTicks(3552),
+                            Email = "Teacher2@gmail.com",
+                            FirstName = "Teacher2",
+                            LastName = "Teacher2",
+                            Password = "AGn857s4/ZdasogaPqxuCPq5x6lEb59fBknks/G/H+H5A1xk0NCNHvDZ2oMYGz3YeA==",
+                            Role = "Teacher"
+                        });
                 });
 
             modelBuilder.Entity("Models.UserToken", b =>
@@ -230,9 +404,6 @@ namespace Data.Migrations
 
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Token")
                         .HasColumnType("nvarchar(max)");
@@ -251,15 +422,11 @@ namespace Data.Migrations
                 {
                     b.HasOne("Models.Student", "Student")
                         .WithMany("Grades")
-                        .HasForeignKey("StudentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StudentID");
 
                     b.HasOne("Models.Subject", "Subject")
                         .WithMany("Grades")
-                        .HasForeignKey("SubjectID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SubjectID");
                 });
 
             modelBuilder.Entity("Models.JoiningModels.ParentStudent", b =>
@@ -267,13 +434,13 @@ namespace Data.Migrations
                     b.HasOne("Models.Parent", "Parent")
                         .WithMany("ParentStudents")
                         .HasForeignKey("ParentID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Models.Student", "Student")
                         .WithMany("ParentStudents")
                         .HasForeignKey("StudentID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -282,13 +449,13 @@ namespace Data.Migrations
                     b.HasOne("Models.Subject", "Subject")
                         .WithMany("TeacherSubjects")
                         .HasForeignKey("SubjectID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Models.Teacher", "Teacher")
                         .WithMany("TeacherSubjects")
                         .HasForeignKey("TeacherID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 

@@ -21,10 +21,11 @@ namespace SchoolBook.Controllers
 			this.userManager = userManager;
 		}
 		[HttpGet]
-		public ActionResult Test()
+		[Route("getall")]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+		public IActionResult GetAll()
 		{
-			return Ok("Test passed");
-			// тегли swagger
+			return Ok(userManager.GetAll());
 		}
         [HttpPost]
 		[Route("register")]
@@ -53,14 +54,24 @@ namespace SchoolBook.Controllers
 		[Route("delete")]
 		public IActionResult Delete(int id)
 		{
-			return Ok("boi u did it");
+			bool res =userManager.DeleteUser(id);
+			if (res == true)
+			{
+				return Ok();
+			}
+			return BadRequest();
 		}
 		[HttpPost]
 		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
-		[Route("delete")]
-		public IActionResult Edit(int id)
+		[Route("edit")]
+		public IActionResult Edit(EditPersonModel model)
 		{
-			return Ok("boi u did it");
+			bool res = userManager.EditUser(model);
+			if (res == true)
+			{
+				return Ok();
+			}
+			return BadRequest();
 		}
 	}
 }

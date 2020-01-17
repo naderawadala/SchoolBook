@@ -1,5 +1,6 @@
 ﻿using Data;
 using Models;
+using Services.Managers.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace Services.Managers.Implementations
 {
-	public class ParentManager:BaseManager<Parent>
+	public class ParentManager : BaseManager<Parent>, IParentManager
 	{
 		// let a parent see their child's grades only
 		private SchoolBookContext dbContext { get; set; }
@@ -15,10 +16,19 @@ namespace Services.Managers.Implementations
 		{
 			this.dbContext = dbContext;
 		}
-		public List<Grade> GetChildGrades(Parent parent)
+		
+		public Dictionary<Student,List<Grade>> GetChildGrades(Parent parent)
 		{
-			Student student = (Student)dbContext.ParentStudents.Where(x => x.ParentID == parent.ID).Select(x => x.Student);
-			return student.Grades.ToList();
+			Dictionary<Student, List<Grade>> result=new Dictionary<Student, List<Grade>>();
+			/*var getParent = dbContext.ParentStudents.FirstOrDefault(x => x.ParentID == parent.ID);
+			List<Student> students = new List<Student>();
+			students=dbContext.Students.SelectMany(x => x.ID == parent.ID);
+			foreach(Student student in students)
+			{
+				result.Add(student, (List<Grade>)student.Grades);
+			}*/
+			return result;
 		}
+
 	}
 }

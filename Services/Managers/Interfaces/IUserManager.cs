@@ -1,4 +1,5 @@
-﻿using Services.CustomModels;
+﻿using Models;
+using Services.CustomModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,8 @@ namespace Services.Managers.Interfaces
 
 		string Register(RegisterModel model);
 
-		string EditUser(EditPersonModel model);
-		string DeleteUser(int id);
+		bool EditUser(EditPersonModel model);
+		bool DeleteUser(int id);
+		List<User> GetAll();
 	}
 }

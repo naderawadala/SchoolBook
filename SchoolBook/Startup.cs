@@ -16,6 +16,7 @@ using Data;
 using Services.CustomModels;
 using Microsoft.OpenApi.Models;
 using System.Linq;
+using Services.Managers.Implementations;
 
 namespace WebApplication
 {
@@ -89,6 +90,7 @@ namespace WebApplication
 			
 			services.AddScoped<SchoolBookContext>();
 			services.AddScoped<IUserManager, UserManager>();
+			services.AddScoped<IParentManager, ParentManager>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

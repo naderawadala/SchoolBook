@@ -11,7 +11,7 @@ namespace Services.Managers.Implementations
 	public class BaseManager<T> : IBaseManager<T> where T : class
 	{
 		private SchoolBookContext Context;
-		private DbSet<T> DbSet { get { return Context.Set<T>(); } }
+		protected DbSet<T> DbSet { get { return Context.Set<T>(); } }
 		public BaseManager()
 		{
 			Context = new SchoolBookContext();

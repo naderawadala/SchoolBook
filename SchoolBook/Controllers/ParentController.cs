@@ -16,18 +16,19 @@ namespace SchoolBook.Controllers
     [ApiController]
     public class ParentController : ControllerBase
     {
-		private ParentManager manager;
-		public ParentController(ParentManager manager)
+		private IParentManager manager;
+		public ParentController(IParentManager manager)
 		{
 			this.manager = manager;
 		}
 		[HttpPost]
 		[Route("childgrade")]
-		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Parent")]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin, Parent")]
 		public IActionResult GetChildGrades(int parentID)
 		{
 			Parent parent = manager.GetByID(parentID);
-			List<Grade> grades = manager.GetChildGrades(parent);
+			
+			Dictionary<Student,List<Grade>> grades = manager.GetChildGrades(parent);
 			if (grades.Count() > 0)
 			{
 				return Ok(grades);

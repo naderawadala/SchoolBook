@@ -4,8 +4,7 @@ using Models.BaseModels;
 using Models.JoiningModels;
 using System;
 using System.Linq;
-
-
+using System.Security.Cryptography;
 
 namespace Data
 {
@@ -55,7 +54,7 @@ namespace Data
 				DateModified = DateTime.Now,
 				FirstName = "Admin",
 				LastName = "Admin",
-				Email = "Admin@gmail.com", Password = "Admin123!", Role = "Admin"
+				Email = "Admin@gmail.com", Password = HashPassword("Admin123!"), Role = "Admin"
 			});
 			modelBuilder.Entity<User>().HasData(new User
 			{
@@ -65,7 +64,7 @@ namespace Data
 				FirstName = "Parent",
 				LastName = "Parent",
 				Email = "Parent@gmail.com",
-				Password = "Parent123!",
+				Password = HashPassword("Parent123!")!,
 				Role = "Parent"
 			});
 			modelBuilder.Entity<User>().HasData(new User
@@ -76,7 +75,7 @@ namespace Data
 				FirstName = "Student",
 				LastName = "Student",
 				Email = "Student@gmail.com",
-				Password = "Student123!",
+				Password = HashPassword("Student123!"),
 				Role = "Student"
 			});
 
@@ -88,7 +87,7 @@ namespace Data
 				FirstName = "Teacher",
 				LastName = "Teacher",
 				Email = "Teacher@gmail.com",
-				Password = "Teacher123!",
+				Password = HashPassword("Teacher123!"),
 				Role = "Teacher"
 			});
 			modelBuilder.Entity<User>().HasData(new User
@@ -99,7 +98,7 @@ namespace Data
 				FirstName = "Student2",
 				LastName = "Student2",
 				Email = "Student2@gmail.com",
-				Password = "Student123!",
+				Password = HashPassword("Student123!"),
 				Role = "Student"
 			});
 			modelBuilder.Entity<User>().HasData(new User
@@ -110,7 +109,7 @@ namespace Data
 				FirstName = "Teacher2",
 				LastName = "Teacher2",
 				Email = "Teacher2@gmail.com",
-				Password = "Teacher123!",
+				Password = HashPassword("Teacher123!"),
 				Role = "Teacher"
 			});
 			#endregion
@@ -206,6 +205,7 @@ namespace Data
 				StudentID = 2
 			});
 			#endregion
+			
 		}
 
 		public override int SaveChanges()
@@ -226,6 +226,24 @@ namespace Data
 					((BaseClass)entry.Entity).DateCreated = DateTime.Now;
 				}
 			}
+		}
+		private string HashPassword(string password)
+		{
+			byte[] salt;
+			byte[] buffer2;
+			if (password == null)
+			{
+				throw new ArgumentNullException("Password is empty");
+			}
+			using (Rfc2898DeriveBytes bytes = new Rfc2898DeriveBytes(password, 0x10, 0x3e8))
+			{
+				salt = bytes.Salt;
+				buffer2 = bytes.GetBytes(0x20);
+			}
+			byte[] dst = new byte[0x31];
+			Buffer.BlockCopy(salt, 0, dst, 1, 0x10);
+			Buffer.BlockCopy(buffer2, 0, dst, 0x11, 0x20);
+			return Convert.ToBase64String(dst);
 		}
 	}
 }
