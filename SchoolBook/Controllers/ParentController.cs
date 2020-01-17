@@ -34,17 +34,6 @@ namespace SchoolBook.Controllers
 			}
 			return BadRequest();
 		}
-		[HttpPost]
-		[Route("makeparent")]
-		public IActionResult MakeParent()
-		{
-			return null;
-		}
-		[HttpPost]
-		[Route("setchild")]
-		public IActionResult SetChild()
-		{
-			return null;
-		}
+	
     }
 }

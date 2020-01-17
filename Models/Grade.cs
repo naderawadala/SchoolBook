@@ -1,4 +1,5 @@
 ﻿using Models.BaseModels;
+using Models.JoiningModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,9 +13,9 @@ namespace Models
 		[Required]
 		[Range(2.0,6.0)]
 		public double Score { get; set; }
-		[Required]
+		public int? StudentID { get; set; }
 		public Student Student { get; set; }
-		[Required]
+		public int? SubjectID { get; set; }
 		public Subject Subject { get; set; }
 	}
 }

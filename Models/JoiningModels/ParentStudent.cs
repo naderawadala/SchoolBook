@@ -7,9 +7,9 @@ namespace Models.JoiningModels
 	public class ParentStudent
 	{
 		public int ParentID { get; set; }
-		public virtual Parent Parent { get; set; }
+		public  Parent Parent { get; set; }
 
 		public int StudentID { get; set; }
-		public virtual Student Student { get; set; }
+		public  Student Student { get; set; }
 	}
 }

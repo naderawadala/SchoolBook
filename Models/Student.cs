@@ -13,18 +13,6 @@ namespace Models
 		public User User { get; set; }
 		public ICollection<Grade> Grades { get; set; }
 		public ICollection<ParentStudent> ParentStudents { get; set; }
-		/* 
-		 * WIP STUDENT GRADE
-		 * public double AvgGrade { get; set; }
-		private double CalcAvgGrade()
-		{
-			double avg = 0;
-			foreach (Grade grade in Grades)
-			{
-				avg += grade.Score;
-			}
-			return avg / Grades.Count;
-		}
-		*/
+	
 	}
 }

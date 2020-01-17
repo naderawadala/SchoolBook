@@ -7,12 +7,7 @@ using System.Text;
 namespace Models
 {
 	public class User : BaseClass
-	{/*
-		public User()
-		{
-			UserTokens = new HashSet<UserToken>();
-			
-		}*/
+	{
 		[Required]
 		[StringLength(maximumLength: 50, MinimumLength = 5)]
 		public string Email { get; set; }
