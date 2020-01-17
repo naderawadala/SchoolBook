@@ -91,25 +91,28 @@ namespace WebApplication
 			services.AddScoped<SchoolBookContext>();
 			services.AddScoped<IUserManager, UserManager>();
 			services.AddScoped<IParentManager, ParentManager>();
+			services.AddScoped<IStudentManager, StudentManager>();
+			services.AddScoped<ITeacherManager, TeacherManager>();
+			services.AddScoped<IGradeManager, GradeManager>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
+
+
+
+			app.UseHttpsRedirection();
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
+				app.UseSwagger();
+				app.UseSwaggerUI(c =>
+				{
+					c.SwaggerEndpoint("./v1/swagger.json", "SchoolBook V1");
+				});
 			}
 
-			app.UseHttpsRedirection();
-
-			app.UseSwagger();
-			app.UseSwaggerUI(c =>
-			{
-				c.SwaggerEndpoint("./v1/swagger.json", "SchoolBook V1"); 
-			});
-
-			
 
 			app.UseRouting();
 

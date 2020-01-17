@@ -15,5 +15,7 @@ namespace Services.Managers.Interfaces
 		bool EditUser(EditPersonModel model);
 		bool DeleteUser(int id);
 		List<User> GetAll();
+		bool SetTeacher(SetTeacherModel model);
+		bool SetStudentAndParent(SetStudentAndParentModel model);
 	}
 }

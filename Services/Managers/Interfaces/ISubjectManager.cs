@@ -5,9 +5,7 @@ using System.Text;
 
 namespace Services.Managers.Interfaces
 {
-	public interface IParentManager: IBaseManager<Parent>
+	public interface ISubjectManager:IBaseManager<Subject>
 	{
-		List<Grade> GetChildGrades(int parentID);
-	
 	}
 }

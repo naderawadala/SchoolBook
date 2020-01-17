@@ -73,5 +73,29 @@ namespace SchoolBook.Controllers
 			}
 			return BadRequest();
 		}
+		[HttpPost]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+		[Route("setteacher")]
+		public IActionResult SetTeacher(SetTeacherModel model)
+		{
+			bool res = userManager.SetTeacher(model);
+			if (res == true)
+			{
+				return Ok();
+			}
+			return BadRequest();
+		}
+		[HttpPost]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+		[Route("setstudent")]
+		public IActionResult SetStudentAndParent(SetStudentAndParentModel model)
+		{
+			bool res = userManager.SetStudentAndParent(model);
+			if (res == true)
+			{
+				return Ok();
+			}
+			return BadRequest();
+		}
 	}
 }

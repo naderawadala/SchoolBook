@@ -1,7 +1,10 @@
 ﻿using Data;
 using Microsoft.EntityFrameworkCore;
 using Models;
+using Models.JoiningModels;
+using Services.CustomModels;
 using Services.CustomModels.MapperSettings;
+using Services.Managers.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,39 +12,29 @@ using System.Text;
 
 namespace Services.Managers.Implementations
 {
-	public class StudentManager:BaseManager<Student>
+	public class StudentManager:BaseManager<Student>, IStudentManager
 	{
-		// FIND A WAY TO STORE THE AVERAGE STUDENT GRADE
 		private SchoolBookContext dbContext { get; set; }
 		public StudentManager(SchoolBookContext dbContext)
 		{
 			this.dbContext = dbContext;
 		}
-		public List<Student> GetBestStudents(int n)
+	
+		public List<Grade> GetStudentGrades(int studentID)
 		{
-			var result=
-			dbContext.Students.Select(x => new
+			List<Grade> grades = new List<Grade>();
+			var query = (dbContext.Grades.Where(x => x.StudentID == studentID));
+			foreach (Grade grade in query)
 			{
-				StudentName = x.User.FirstName,
-				Grade=x.Grades.Average(x=>x.Score)
-			}).ToList();
-			return null;
-		}
-		
-		public double GetAverageGrade(Student student)
-		{
-			List<Grade> grades = (List<Grade>)student.Grades;
-			return CalculateAverage(grades);
-		}
-		private double CalculateAverage(List<Grade> grades)
-		{
-			double sum=0;
-			foreach(Grade grade in grades)
-			{
-				sum += grade.Score;
+				grades.Add(grade);
 			}
-			return sum / grades.Count;
+			return grades;
 		}
-		// let a student see all his own grades on subjects
+		public double GetAverageGrade(int studentID)
+		{
+			List<Grade> grades = GetStudentGrades(studentID);
+			return grades.Average(x => x.Score);		}
+
+		
 	}
 }

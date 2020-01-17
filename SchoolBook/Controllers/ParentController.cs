@@ -12,14 +12,21 @@ using Services.Managers.Interfaces;
 
 namespace SchoolBook.Controllers
 {
-    [Route("api/parent")]
-    [ApiController]
-    public class ParentController : ControllerBase
-    {
+	[Route("api/parent")]
+	[ApiController]
+	public class ParentController : ControllerBase
+	{
 		private IParentManager manager;
 		public ParentController(IParentManager manager)
 		{
 			this.manager = manager;
+		}
+		[HttpGet]
+		[Route("getall")]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+		public IActionResult GetAllParents()
+		{
+			return Ok(manager.GetAll().ToList());
 		}
 		[HttpPost]
 		[Route("childgrade")]
@@ -27,14 +34,34 @@ namespace SchoolBook.Controllers
 		public IActionResult GetChildGrades(int parentID)
 		{
 			Parent parent = manager.GetByID(parentID);
-			
-			Dictionary<Student,List<Grade>> grades = manager.GetChildGrades(parent);
-			if (grades.Count() > 0)
+			if (parent != null)
 			{
-				return Ok(grades);
+				List<Grade> grades = manager.GetChildGrades(parentID);
+				if (grades.Count() > 0)
+				{
+					return Ok(grades.Select(x => new
+					{
+						StudentID=x.StudentID,
+						SubjectID=x.SubjectID,
+						Score=x.Score
+					}).ToList());
+				}
 			}
 			return BadRequest();
 		}
-	
-    }
+		[HttpPost]
+		[Route("delete")]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Teacher")]
+		public IActionResult DeleteParent(int parentID)
+		{
+			bool result = manager.DeleteByID(parentID);
+			if (result == false)
+			{
+				return BadRequest();
+			}
+			return Ok();
+		}
+		
+
+	}
 }

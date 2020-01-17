@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Models;
+using Models.JoiningModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,6 +32,14 @@ namespace Services.CustomModels.MapperSettings
 	
 				CreateMap<EditPersonModel, User>();
 				CreateMap<Student, StudentModel>();
+
+				CreateMap<SetGradeModel, Grade>();
+
+				CreateMap<SetTeacherModel, Teacher>();
+				CreateMap<SetTeacherModel, TeacherSubject>();
+
+				CreateMap<SetStudentAndParentModel, Student>();
+				CreateMap<SetStudentAndParentModel, Parent>();
 			}
 		}
 	}

@@ -4,18 +4,17 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Models;
 using System.Collections.Generic;
-using Services.Common;
 using Services.CustomModels;
 using Services.CustomModels.MapperSettings;
 using Services.Managers.Interfaces;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using Models.JoiningModels;
 
 namespace Services.Identity.Implementations
 {
@@ -82,7 +81,7 @@ namespace Services.Identity.Implementations
 			getUser.Email = model.Email;
 			getUser.FirstName = model.FirstName;
 			getUser.LastName = model.LastName;
-			getUser.Role = model.Role;
+		
 
 			var checkPasswordChange = VerifyHashedPassword(getUser.Password, model.Password);
 			if (checkPasswordChange == false)
@@ -94,7 +93,49 @@ namespace Services.Identity.Implementations
 			dbContext.SaveChanges();
 			return true;
 		}
+		public bool SetTeacher(SetTeacherModel model)
+		{
+			Teacher teacher = new Teacher();
+			Subject subject = dbContext.Subjects.SingleOrDefault(x => x.ID == model.SubjectID);
+			var getUser = dbContext.Users.SingleOrDefault(x => x.ID == model.UserID);
+			if (getUser == null || subject == null)
+			{
+				return false;
+			}
+			teacher = MapperConfigurator.Mapper.Map<Teacher>(model);
+			TeacherSubject teacherSubject = new TeacherSubject() { Subject = subject, Teacher = teacher };
+			getUser.Role = "Teacher";
+			dbContext.Users.Update(getUser);
+			dbContext.Teachers.Add(teacher);
+			dbContext.TeacherSubjects.Add(teacherSubject);
+			dbContext.SaveChanges();
+			return true;
+		}
+		public bool SetStudentAndParent(SetStudentAndParentModel model)
+		{
+			Student student = new Student();
+			Parent parent = new Parent();
+			var getStudent = dbContext.Users.SingleOrDefault(x => x.ID == model.StudentUserID);
+			var getParent = dbContext.Users.SingleOrDefault(x => x.ID == model.ParentUserID);
+			if (getStudent == null || getParent == null)
+			{
+				return false;
+			}
+			student.UserID = getStudent.ID;
+			parent.UserID = getParent.ID;
 
+			ParentStudent parentStudent = new ParentStudent() { Parent = parent, Student = student };
+			getStudent.Role = "Student";
+			getParent.Role = "Parent";
+			dbContext.Users.Update(getStudent);
+			dbContext.Users.Update(getParent);
+			dbContext.Students.Add(student);
+			dbContext.Parents.Add(parent);
+			dbContext.ParentStudents.Add(parentStudent);
+			dbContext.SaveChanges();
+
+			return true;
+		}
 		public bool DeleteUser(int id)
 		{
 			var user = DbSet.SingleOrDefault(x => x.ID == id);

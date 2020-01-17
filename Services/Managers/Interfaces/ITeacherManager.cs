@@ -1,13 +1,13 @@
 ﻿using Models;
+using Services.CustomModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Services.Managers.Interfaces
 {
-	public interface IParentManager: IBaseManager<Parent>
+	public interface ITeacherManager : IBaseManager<Teacher>
 	{
-		List<Grade> GetChildGrades(int parentID);
-	
+		
 	}
 }

@@ -6,56 +6,55 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Models;
+using Services.CustomModels;
 using Services.Managers.Interfaces;
 
 namespace SchoolBook.Controllers
 {
-    [Route("api/student")]
+    [Route("api/grade")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class GradeController : ControllerBase
     {
-		IStudentManager manager;
-		public StudentController(IStudentManager manager)
+		IGradeManager manager;
+		public GradeController(IGradeManager manager)
 		{
 			this.manager = manager;
 		}
 		[HttpGet]
 		[Route("getall")]
 		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Teacher")]
-		public IActionResult GetStudents()
+		public IActionResult GetGrades()
 		{
-			return (Ok(manager.GetAll().ToList()));
+			return Ok(manager.GetAll().ToList());
 		}
-		
 		[HttpPost]
-		[Route("getavg")]
-		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Teacher,Student")]
-		public IActionResult GetAverageGrade(int studentID)
+		[Route("set")]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Teacher")]
+		public IActionResult SetGrade(SetGradeModel model)
 		{
-			double result = manager.GetAverageGrade(studentID);
-			if (result == -1)
+			bool result = manager.SetGrade(model);
+			if (result == false)
 			{
 				return BadRequest();
 			}
-			return Ok(result);
+			return Ok();
 		}
 		[HttpPost]
-		[Route("getgrades")]
-		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Teacher,Student")]
-		public IActionResult GetGrades(int studentID)
+		[Route("edit")]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Teacher")]
+		public IActionResult EditGrade(EditGradeModel model)
 		{
-			List<Grade> result = manager.GetStudentGrades(studentID);
-			if (result == null)
+			bool result = manager.EditGrade(model);
+			if (result == false)
 			{
 				return BadRequest();
 			}
-			return Ok(result.ToList());
+			return Ok();
 		}
 		[HttpPost]
 		[Route("delete")]
 		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
-		public IActionResult DeleteStudent(int id)
+		public IActionResult DeleteGrade(int id)
 		{
 			bool result = manager.DeleteByID(id);
 			if (result == false)

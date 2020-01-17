@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(SchoolBookContext))]
-    [Migration("20200117083624_init")]
+    [Migration("20200117213436_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,8 +55,8 @@ namespace Data.Migrations
                         new
                         {
                             ID = 1,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 481, DateTimeKind.Local).AddTicks(6284),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 481, DateTimeKind.Local).AddTicks(6315),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 429, DateTimeKind.Local).AddTicks(1600),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 429, DateTimeKind.Local).AddTicks(1622),
                             Score = 5.0,
                             StudentID = 1,
                             SubjectID = 1
@@ -64,8 +64,8 @@ namespace Data.Migrations
                         new
                         {
                             ID = 2,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 482, DateTimeKind.Local).AddTicks(16),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 482, DateTimeKind.Local).AddTicks(45),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 429, DateTimeKind.Local).AddTicks(4073),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 429, DateTimeKind.Local).AddTicks(4094),
                             Score = 5.0,
                             StudentID = 2,
                             SubjectID = 2
@@ -159,8 +159,8 @@ namespace Data.Migrations
                         new
                         {
                             ID = 1,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(647),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(708),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(2848),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(2871),
                             UserID = 2
                         });
                 });
@@ -193,15 +193,15 @@ namespace Data.Migrations
                         new
                         {
                             ID = 1,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(4014),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(4050),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(4595),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(4616),
                             UserID = 3
                         },
                         new
                         {
                             ID = 2,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(8605),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(8637),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7072),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7092),
                             UserID = 5
                         });
                 });
@@ -230,15 +230,15 @@ namespace Data.Migrations
                         new
                         {
                             ID = 1,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(9937),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(9967),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7835),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7854),
                             Name = "Subject1"
                         },
                         new
                         {
                             ID = 2,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 481, DateTimeKind.Local).AddTicks(1434),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 481, DateTimeKind.Local).AddTicks(1463),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(8709),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(8728),
                             Name = "Subject2"
                         });
                 });
@@ -271,15 +271,15 @@ namespace Data.Migrations
                         new
                         {
                             ID = 1,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(6694),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(6727),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(6153),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(6174),
                             UserID = 4
                         },
                         new
                         {
                             ID = 2,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(8775),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 480, DateTimeKind.Local).AddTicks(8787),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7159),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 428, DateTimeKind.Local).AddTicks(7165),
                             UserID = 6
                         });
                 });
@@ -327,67 +327,67 @@ namespace Data.Migrations
                         new
                         {
                             ID = 1,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 434, DateTimeKind.Local).AddTicks(6153),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 439, DateTimeKind.Local).AddTicks(8763),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 411, DateTimeKind.Local).AddTicks(5775),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 414, DateTimeKind.Local).AddTicks(7924),
                             Email = "Admin@gmail.com",
                             FirstName = "Admin",
                             LastName = "Admin",
-                            Password = "AMnHRwYCX1I3KuWctiQLv2HpsZ1Vj9yA1gJngmvNI0A9W02GsQJycUY6fnJOR99FlQ==",
+                            Password = "AGjAOuKvnzJuYEeRQUIryVPnEexaemytkIm9hwNJuZdsPIzHTFqNfelxmRiCqB0chg==",
                             Role = "Admin"
                         },
                         new
                         {
                             ID = 2,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 469, DateTimeKind.Local).AddTicks(9023),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 469, DateTimeKind.Local).AddTicks(9101),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 422, DateTimeKind.Local).AddTicks(2622),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 422, DateTimeKind.Local).AddTicks(2689),
                             Email = "Parent@gmail.com",
                             FirstName = "Parent",
                             LastName = "Parent",
-                            Password = "ALYgCHthIKBQTZK0LYENw/YPXH5NNHH1tmofpIXgFKf6ZmjfJqOWOrrXeBvqfg4YSQ==",
+                            Password = "AAzDep7mVeSMnZ2x2uAgSuGQ02J9Y3aBehkMs+Ggkfr6cMgXUW2sE5xQATNamA8MAQ==",
                             Role = "Parent"
                         },
                         new
                         {
                             ID = 3,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 472, DateTimeKind.Local).AddTicks(1338),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 472, DateTimeKind.Local).AddTicks(1394),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 423, DateTimeKind.Local).AddTicks(5409),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 423, DateTimeKind.Local).AddTicks(5428),
                             Email = "Student@gmail.com",
                             FirstName = "Student",
                             LastName = "Student",
-                            Password = "AP3cinWj6ZZNu+/+MBNJ/Qvldymc2ih5k3mLDoltiII5Og3fBqdmkFbgP2k+D+u+Kg==",
+                            Password = "AEGcEjJdZSqJ2xK3bTKAmsf1iEo8s27+hblcJiE76JwXbiHMReitSWy8UNFw/mRAzA==",
                             Role = "Student"
                         },
                         new
                         {
                             ID = 4,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 473, DateTimeKind.Local).AddTicks(4629),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 473, DateTimeKind.Local).AddTicks(4658),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 424, DateTimeKind.Local).AddTicks(6646),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 424, DateTimeKind.Local).AddTicks(6654),
                             Email = "Teacher@gmail.com",
                             FirstName = "Teacher",
                             LastName = "Teacher",
-                            Password = "AI9gIeponffvPbbkkf7rkpJ+8eMIQZljBWHTsqC0KpkPKvrBrZCl8Xya/8yQBVxxbw==",
+                            Password = "AHuAzm8XOlKPfer7BVUi4vc+fVnTa5fQR9pY79+xQ2T7xok8m2FUYAiQC8RXd96WVg==",
                             Role = "Teacher"
                         },
                         new
                         {
                             ID = 5,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 474, DateTimeKind.Local).AddTicks(8855),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 474, DateTimeKind.Local).AddTicks(8918),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 425, DateTimeKind.Local).AddTicks(8338),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 425, DateTimeKind.Local).AddTicks(8357),
                             Email = "Student2@gmail.com",
                             FirstName = "Student2",
                             LastName = "Student2",
-                            Password = "AHb4rvWapfJeOXcgBFRfMNg/X34W+IAF+hnQTnXJ/yidEsGyBN7MMvhPFttCXdmh4g==",
+                            Password = "AGs0njTg6V0GHnaT1mnzRqyA8sPXCHbbgi1rNz03uJ4/ZhD/RjmyLFfXoicB1I+UcA==",
                             Role = "Student"
                         },
                         new
                         {
                             ID = 6,
-                            DateCreated = new DateTime(2020, 1, 17, 10, 36, 23, 477, DateTimeKind.Local).AddTicks(3488),
-                            DateModified = new DateTime(2020, 1, 17, 10, 36, 23, 477, DateTimeKind.Local).AddTicks(3552),
+                            DateCreated = new DateTime(2020, 1, 17, 23, 34, 35, 426, DateTimeKind.Local).AddTicks(9576),
+                            DateModified = new DateTime(2020, 1, 17, 23, 34, 35, 426, DateTimeKind.Local).AddTicks(9584),
                             Email = "Teacher2@gmail.com",
                             FirstName = "Teacher2",
                             LastName = "Teacher2",
-                            Password = "AGn857s4/ZdasogaPqxuCPq5x6lEb59fBknks/G/H+H5A1xk0NCNHvDZ2oMYGz3YeA==",
+                            Password = "ABRw2XNXpsfn9al7CUoKTmoMILTvoEehzkiqRaX9OOdkUHCfeL1Uzq2ybcOBYWIArQ==",
                             Role = "Teacher"
                         });
                 });
@@ -422,7 +422,8 @@ namespace Data.Migrations
                 {
                     b.HasOne("Models.Student", "Student")
                         .WithMany("Grades")
-                        .HasForeignKey("StudentID");
+                        .HasForeignKey("StudentID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Models.Subject", "Subject")
                         .WithMany("Grades")
@@ -463,21 +464,24 @@ namespace Data.Migrations
                 {
                     b.HasOne("Models.User", "User")
                         .WithOne("Parent")
-                        .HasForeignKey("Models.Parent", "UserID");
+                        .HasForeignKey("Models.Parent", "UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Models.Student", b =>
                 {
                     b.HasOne("Models.User", "User")
                         .WithOne("Student")
-                        .HasForeignKey("Models.Student", "UserID");
+                        .HasForeignKey("Models.Student", "UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Models.Teacher", b =>
                 {
                     b.HasOne("Models.User", "User")
                         .WithOne("Teacher")
-                        .HasForeignKey("Models.Teacher", "UserID");
+                        .HasForeignKey("Models.Teacher", "UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Models.UserToken", b =>

@@ -35,7 +35,10 @@ namespace Data
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-
+		
+			modelBuilder.Entity<User>().HasOne(x => x.Student).WithOne(x => x.User).OnDelete(DeleteBehavior.Cascade);
+			modelBuilder.Entity<User>().HasOne(x => x.Parent).WithOne(x => x.User).OnDelete(DeleteBehavior.Cascade);
+			modelBuilder.Entity<User>().HasOne(x => x.Teacher).WithOne(x => x.User).OnDelete(DeleteBehavior.Cascade);
 			modelBuilder.Entity<Parent>().HasMany(x => x.ParentStudents).WithOne(x => x.Parent).OnDelete(DeleteBehavior.Cascade);
 			modelBuilder.Entity<Student>().HasMany(x => x.ParentStudents).WithOne(x => x.Student).OnDelete(DeleteBehavior.Cascade);
 			modelBuilder.Entity<ParentStudent>().HasKey(k => new { k.ParentID, k.StudentID });
@@ -44,6 +47,9 @@ namespace Data
 			modelBuilder.Entity<Subject>().HasMany(x => x.TeacherSubjects).WithOne(x => x.Subject).OnDelete(DeleteBehavior.Cascade);
 			modelBuilder.Entity<TeacherSubject>().HasKey(k => new { k.TeacherID, k.SubjectID });
 
+			modelBuilder.Entity<Student>().HasMany(x => x.Grades).WithOne(x => x.Student).OnDelete(DeleteBehavior.Cascade);
+			
+			
 			#region Seeds
 
 			#region User seeds

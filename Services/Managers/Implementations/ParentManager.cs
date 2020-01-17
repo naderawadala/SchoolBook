@@ -1,5 +1,7 @@
 ﻿using Data;
+using Microsoft.EntityFrameworkCore;
 using Models;
+using Models.JoiningModels;
 using Services.Managers.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,25 +12,43 @@ namespace Services.Managers.Implementations
 {
 	public class ParentManager : BaseManager<Parent>, IParentManager
 	{
-		// let a parent see their child's grades only
 		private SchoolBookContext dbContext { get; set; }
 		public ParentManager(SchoolBookContext dbContext)
 		{
 			this.dbContext = dbContext;
 		}
-		
-		public Dictionary<Student,List<Grade>> GetChildGrades(Parent parent)
+		public List<Grade> GetChildGrades(int parentID)
 		{
-			Dictionary<Student, List<Grade>> result=new Dictionary<Student, List<Grade>>();
-			/*var getParent = dbContext.ParentStudents.FirstOrDefault(x => x.ParentID == parent.ID);
-			List<Student> students = new List<Student>();
-			students=dbContext.Students.SelectMany(x => x.ID == parent.ID);
-			foreach(Student student in students)
+			List<int> students = GetStudentIDs(parentID);
+			List<Grade> grades = new List<Grade>();
+		
+			if (students.Count == 0)
 			{
-				result.Add(student, (List<Grade>)student.Grades);
-			}*/
-			return result;
+				return null;
+			}
+			foreach(int student in students)
+			{
+				var query = (dbContext.Grades.Where(x => x.StudentID == student));
+				foreach(Grade grade in query)
+				{
+					grades.Add(grade);
+				}
+			}
+			return grades;
+			
 		}
-
+		private List<int> GetStudentIDs(int parentID)
+		{
+			var query = dbContext.ParentStudents.Include(x => x.Parent).Include(x => x.Student);
+			List<int> students = new List<int>();
+			foreach (ParentStudent el in query)
+			{
+				if (el.ParentID == parentID)
+				{
+					students.Add(el.Student.ID);
+				}
+			}
+			return students;
+		}
 	}
 }
