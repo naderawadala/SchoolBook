@@ -143,13 +143,28 @@ namespace Services.Identity.Implementations
 			{
 				return false;
 			}
-			dbContext.Remove(user);
-			dbContext.SaveChanges();
-			return true;
+			if (VerifyUserHasNoRole(user.ID))
+			{
+				dbContext.Remove(user);
+				dbContext.SaveChanges();
+				return true;
+			}
+			return false;
 		}
 		public List<User> GetAll()
 		{
 			return DbSet.ToList();
+		}
+		private bool VerifyUserHasNoRole(int id)
+		{
+			var parentCheck = dbContext.Parents.SingleOrDefault(x => x.UserID == id);
+			var teacherCheck= dbContext.Teachers.SingleOrDefault(x => x.UserID == id);
+			var studentCheck=dbContext.Students.SingleOrDefault(x => x.UserID == id);
+			if (parentCheck == null && teacherCheck == null && studentCheck == null)
+			{
+				return true;
+			}
+			return false;
 		}
 		private bool VerifyHashedPassword(string hashedPassword, string password)
 		{

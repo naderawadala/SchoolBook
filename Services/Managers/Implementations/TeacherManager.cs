@@ -13,11 +13,25 @@ namespace Services.Managers.Implementations
 {
 	public class TeacherManager:BaseManager<Teacher>, ITeacherManager
 	{
-		private SchoolBookContext DbContext { get; set; }
+		private SchoolBookContext dbContext { get; set; }
 		public TeacherManager(SchoolBookContext dbContext)
 		{
-			this.DbContext = dbContext;
+			this.dbContext = dbContext;
 		}
-	
+		public override bool DeleteByID(int id)
+		{
+			bool isDeleted = false;
+			Teacher item = DbSet.Find(id);
+			User user = dbContext.Users.SingleOrDefault(x => x.ID == item.UserID);
+			if (item != null)
+			{
+				user.Role = "User";
+				dbContext.Update(user);
+				DbSet.Remove(item);
+				isDeleted = true;
+			}
+			dbContext.SaveChanges();
+			return isDeleted;
+		}
 	}
 }

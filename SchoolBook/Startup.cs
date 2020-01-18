@@ -94,6 +94,7 @@ namespace WebApplication
 			services.AddScoped<IStudentManager, StudentManager>();
 			services.AddScoped<ITeacherManager, TeacherManager>();
 			services.AddScoped<IGradeManager, GradeManager>();
+			services.AddScoped<ISubjectManager, SubjectManager>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

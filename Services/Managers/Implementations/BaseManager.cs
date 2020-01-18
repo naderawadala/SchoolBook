@@ -22,7 +22,7 @@ namespace Services.Managers.Implementations
 			Context.SaveChanges();
 		}
 
-		public bool DeleteByID(int id)
+		public virtual bool DeleteByID(int id)
 		{
 			bool isDeleted = false;
 			T item = DbSet.Find(id);

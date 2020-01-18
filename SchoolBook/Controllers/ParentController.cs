@@ -51,7 +51,7 @@ namespace SchoolBook.Controllers
 		}
 		[HttpPost]
 		[Route("delete")]
-		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Teacher")]
+		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
 		public IActionResult DeleteParent(int parentID)
 		{
 			bool result = manager.DeleteByID(parentID);

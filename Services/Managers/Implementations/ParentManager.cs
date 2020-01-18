@@ -37,6 +37,21 @@ namespace Services.Managers.Implementations
 			return grades;
 			
 		}
+		public override bool DeleteByID(int id)
+		{
+			bool isDeleted = false;
+			Parent item = DbSet.Find(id);
+			User user= dbContext.Users.SingleOrDefault(x => x.ID == item.UserID);
+			if (item != null)
+			{
+				user.Role = "User";
+				dbContext.Update(user);
+				DbSet.Remove(item);
+				isDeleted = true;
+			}
+			dbContext.SaveChanges();
+			return isDeleted;
+		}
 		private List<int> GetStudentIDs(int parentID)
 		{
 			var query = dbContext.ParentStudents.Include(x => x.Parent).Include(x => x.Student);

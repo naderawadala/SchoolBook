@@ -12,14 +12,14 @@ using System.Text;
 
 namespace Services.Managers.Implementations
 {
-	public class StudentManager:BaseManager<Student>, IStudentManager
+	public class StudentManager : BaseManager<Student>, IStudentManager
 	{
 		private SchoolBookContext dbContext { get; set; }
 		public StudentManager(SchoolBookContext dbContext)
 		{
 			this.dbContext = dbContext;
 		}
-	
+
 		public List<Grade> GetStudentGrades(int studentID)
 		{
 			List<Grade> grades = new List<Grade>();
@@ -33,8 +33,23 @@ namespace Services.Managers.Implementations
 		public double GetAverageGrade(int studentID)
 		{
 			List<Grade> grades = GetStudentGrades(studentID);
-			return grades.Average(x => x.Score);		}
+			return grades.Average(x => x.Score);
+		}
 
-		
+		public override bool DeleteByID(int id)
+		{
+			bool isDeleted = false;
+			Student item = DbSet.Find(id);
+			User user = dbContext.Users.SingleOrDefault(x => x.ID == item.UserID);
+			if (item != null)
+			{
+				user.Role = "User";
+				dbContext.Update(user);
+				DbSet.Remove(item);
+				isDeleted = true;
+			}
+			dbContext.SaveChanges();
+			return isDeleted;
+		}
 	}
 }
