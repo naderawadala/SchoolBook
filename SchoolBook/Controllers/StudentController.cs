@@ -36,7 +36,7 @@ namespace SchoolBook.Controllers
 			double result = manager.GetAverageGrade(studentID);
 			if (result == -1)
 			{
-				return BadRequest();
+				return BadRequest("Couldn't get the average grade, check if the studentID is correct");
 			}
 			return Ok(result);
 		}
@@ -48,7 +48,7 @@ namespace SchoolBook.Controllers
 			List<Grade> result = manager.GetStudentGrades(studentID);
 			if (result == null)
 			{
-				return BadRequest();
+				return BadRequest("Couldn't retrieve grades, check if the studentID is correct");
 			}
 			return Ok(result.ToList());
 		}
@@ -60,9 +60,9 @@ namespace SchoolBook.Controllers
 			bool result = manager.DeleteByID(id);
 			if (result == false)
 			{
-				return BadRequest();
+				return BadRequest("Couldn't delete student, check if the ID is correct");
 			}
-			return Ok();
+			 return Ok("Student successfully deleted");
 		}
 	}
 }

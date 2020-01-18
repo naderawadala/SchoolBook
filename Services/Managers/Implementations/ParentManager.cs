@@ -41,15 +41,16 @@ namespace Services.Managers.Implementations
 		{
 			bool isDeleted = false;
 			Parent item = DbSet.Find(id);
-			User user= dbContext.Users.SingleOrDefault(x => x.ID == item.UserID);
+		
 			if (item != null)
 			{
+				User user = dbContext.Users.SingleOrDefault(x => x.ID == item.UserID);
 				user.Role = "User";
 				dbContext.Update(user);
-				DbSet.Remove(item);
+				dbContext.Parents.Remove(item);
 				isDeleted = true;
+				dbContext.SaveChanges();
 			}
-			dbContext.SaveChanges();
 			return isDeleted;
 		}
 		private List<int> GetStudentIDs(int parentID)

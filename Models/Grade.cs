@@ -14,9 +14,9 @@ namespace Models
 		[Range(2.0,6.0)]
 		public double Score { get; set; }
 		public int? StudentID { get; set; }
-		public Student Student { get; set; }
+		public virtual Student Student { get; set; }
 		public int? SubjectID { get; set; }
-		public Subject Subject { get; set; }
+		public virtual Subject Subject { get; set; }
 	}
 }
 

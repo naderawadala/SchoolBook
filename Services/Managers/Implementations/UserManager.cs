@@ -69,7 +69,7 @@ namespace Services.Identity.Implementations
 				return token;
 
 			}
-			return "Problem with registration, try again";
+			return "Could not register, this is either because the parameters entered are bad or the user already exists";
 		}
 		public bool EditUser(EditPersonModel model)
 		{
@@ -102,7 +102,12 @@ namespace Services.Identity.Implementations
 			{
 				return false;
 			}
+			var checkTeacherExists = dbContext.Teachers.SingleOrDefault(x => x.UserID == getUser.ID);
 			teacher = MapperConfigurator.Mapper.Map<Teacher>(model);
+			if(dbContext.TeacherSubjects.SingleOrDefault(x=>x.Subject.ID==subject.ID && x.Teacher.ID == teacher.UserID)!=null)
+			{
+				return false;
+			}
 			TeacherSubject teacherSubject = new TeacherSubject() { Subject = subject, Teacher = teacher };
 			getUser.Role = "Teacher";
 			dbContext.Users.Update(getUser);
@@ -123,7 +128,10 @@ namespace Services.Identity.Implementations
 			}
 			student.UserID = getStudent.ID;
 			parent.UserID = getParent.ID;
-
+			if(dbContext.ParentStudents.SingleOrDefault(x=>x.Parent.UserID==parent.UserID && x.Student.UserID == student.UserID)!=null)
+			{
+				return false;
+			}
 			ParentStudent parentStudent = new ParentStudent() { Parent = parent, Student = student };
 			getStudent.Role = "Student";
 			getParent.Role = "Parent";

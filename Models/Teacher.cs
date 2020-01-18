@@ -10,7 +10,7 @@ namespace Models
 	public class Teacher:BaseClass
 	{
 		public int? UserID { get; set; }
-		public User User { get; set; }
-		public ICollection<TeacherSubject> TeacherSubjects { get; set; }
+		public virtual User User { get; set; }
+		public virtual ICollection<TeacherSubject> TeacherSubjects { get; set; }
 	}
 }

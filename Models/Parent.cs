@@ -9,7 +9,7 @@ namespace Models
 	public class Parent:BaseClass
 	{
 		public int? UserID { get; set; }
-		public User User { get; set; }
-		public ICollection<ParentStudent> ParentStudents { get; set; }
+		public virtual User User { get; set; }
+		public virtual ICollection<ParentStudent> ParentStudents { get; set; }
 	}
 }

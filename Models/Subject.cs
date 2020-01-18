@@ -10,7 +10,7 @@ namespace Models
 	public class Subject:BaseClass
 	{
 		public string Name { get; set; }
-		public ICollection<TeacherSubject> TeacherSubjects { get; set; }
-		public ICollection<Grade> Grades { get; set; }
+		public virtual ICollection<TeacherSubject> TeacherSubjects { get; set; }
+		public virtual ICollection<Grade> Grades { get; set; }
 	}
 }

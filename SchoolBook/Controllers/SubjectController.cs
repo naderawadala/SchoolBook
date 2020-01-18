@@ -32,11 +32,12 @@ namespace SchoolBook.Controllers
 		public IActionResult DeleteSubject(int id)
 		{
 			bool result = manager.DeleteByID(id);
-			if (result == true)
+			if (result == false)
 			{
-				return Ok();
+				return BadRequest("Couldn't delete subject, check if the ID is correct");
 			}
-			return BadRequest();
+			return Ok("Subject deleted successfully");
+
 		}
 	}
 }

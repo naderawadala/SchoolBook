@@ -39,16 +39,16 @@ namespace Services.Managers.Implementations
 		public override bool DeleteByID(int id)
 		{
 			bool isDeleted = false;
-			Student item = DbSet.Find(id);
-			User user = dbContext.Users.SingleOrDefault(x => x.ID == item.UserID);
-			if (item != null)
+			Student student = dbContext.Students.Find(id);
+			if (student != null)
 			{
+				User user = dbContext.Users.SingleOrDefault(x => x.ID == student.UserID);
 				user.Role = "User";
 				dbContext.Update(user);
-				DbSet.Remove(item);
+				dbContext.Students.Remove(student);
 				isDeleted = true;
+				dbContext.SaveChanges();
 			}
-			dbContext.SaveChanges();
 			return isDeleted;
 		}
 	}

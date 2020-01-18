@@ -35,9 +35,9 @@ namespace SchoolBook.Controllers
 			bool result = manager.SetGrade(model);
 			if (result == false)
 			{
-				return BadRequest();
+				return BadRequest("Couldn't set grade, check if the parameters are correct");
 			}
-			return Ok();
+			return Ok("Grade set successfully");
 		}
 		[HttpPost]
 		[Route("edit")]
@@ -47,9 +47,9 @@ namespace SchoolBook.Controllers
 			bool result = manager.EditGrade(model);
 			if (result == false)
 			{
-				return BadRequest();
+				return BadRequest("Couldn't edit grade, check if the parameters are correct");
 			}
-			return Ok();
+			return Ok("Grade changed successfully");
 		}
 		[HttpPost]
 		[Route("delete")]
@@ -59,9 +59,9 @@ namespace SchoolBook.Controllers
 			bool result = manager.DeleteByID(id);
 			if (result == false)
 			{
-				return BadRequest();
+				return BadRequest("Couldn't delete grade, check if the ID is correct");
 			}
-			return Ok();
+			return Ok("Grade deleted successfully");
 		}
 	}
 }

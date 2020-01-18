@@ -14,7 +14,7 @@ namespace SchoolBook.Controllers
 	[Route("api/user")]
 	[ApiController]
 	public class UserController : Controller
-    {
+	{
 		private IUserManager userManager;
 		public UserController(IUserManager userManager)
 		{
@@ -27,16 +27,16 @@ namespace SchoolBook.Controllers
 		{
 			return Ok(userManager.GetAll());
 		}
-        [HttpPost]
+		[HttpPost]
 		[Route("register")]
 		public IActionResult Register(RegisterModel model)
 		{
-			string result=userManager.Register(model);
+			string result = userManager.Register(model);
 			if (result.Length > 0)
 			{
 				return Ok(result);
 			}
-			return BadRequest();
+			return BadRequest("Couldn't register, this is either because the user already exists or the parameters are invalid");
 		}
 		[HttpPost]
 		[Route("login")]
@@ -47,19 +47,21 @@ namespace SchoolBook.Controllers
 			{
 				return Ok(result);
 			}
-			return Unauthorized();
+			return BadRequest("Couldn't log in, check if the password and email combination is correct");
 		}
 		[HttpPost]
 		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
 		[Route("delete")]
 		public IActionResult Delete(int id)
 		{
-			bool res =userManager.DeleteUser(id);
-			if (res == true)
+			bool res = userManager.DeleteUser(id);
+			if (res == false)
 			{
-				return Ok();
+				return BadRequest("Couldn't delete user, this may be because the ID was either invalid, or the user still is assigned" +
+			"to a role, try deleting the user from a role they have first.");
+
 			}
-			return BadRequest();
+			return Ok("User deleted");
 		}
 		[HttpPost]
 		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
@@ -67,11 +69,12 @@ namespace SchoolBook.Controllers
 		public IActionResult Edit(EditPersonModel model)
 		{
 			bool res = userManager.EditUser(model);
-			if (res == true)
+			if (res == false)
 			{
-				return Ok();
+				return BadRequest("Couldn't edit user, this may be because the params passed were invalid, make sure the information is" +
+				"valid and then try again");
 			}
-			return BadRequest();
+			return Ok("User changes applied");
 		}
 		[HttpPost]
 		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
@@ -79,11 +82,12 @@ namespace SchoolBook.Controllers
 		public IActionResult SetTeacher(SetTeacherModel model)
 		{
 			bool res = userManager.SetTeacher(model);
-			if (res == true)
+			if (res == false)
 			{
-				return Ok();
+				return BadRequest("Could not teacher, this could be because the teacher already exists, or the" +
+					" parameters entered are invalid ");
 			}
-			return BadRequest();
+			return Ok("User successfully made teacher");
 		}
 		[HttpPost]
 		[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
@@ -91,11 +95,13 @@ namespace SchoolBook.Controllers
 		public IActionResult SetStudentAndParent(SetStudentAndParentModel model)
 		{
 			bool res = userManager.SetStudentAndParent(model);
-			if (res == true)
+			if (res == false)
 			{
-				return Ok();
+				return BadRequest("Could not make parent and student, this could be because the relation already exists, or the" +
+					" parameters entered are invalid ");
 			}
-			return BadRequest();
+			return Ok("Student and Parent successfully applied");
+
 		}
 	}
 }

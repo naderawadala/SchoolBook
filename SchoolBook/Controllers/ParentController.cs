@@ -47,7 +47,7 @@ namespace SchoolBook.Controllers
 					}).ToList());
 				}
 			}
-			return BadRequest();
+			return BadRequest("Couldn't retrieve grades for child, check if the parent ID is correct");
 		}
 		[HttpPost]
 		[Route("delete")]
@@ -57,11 +57,12 @@ namespace SchoolBook.Controllers
 			bool result = manager.DeleteByID(parentID);
 			if (result == false)
 			{
-				return BadRequest();
+				return BadRequest("Couldn't delete parent, check if the ID is correct");
+			
 			}
-			return Ok();
+			return Ok("Parent successfully deleted");
 		}
-		
+
 
 	}
 }

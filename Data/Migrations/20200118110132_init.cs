@@ -208,8 +208,8 @@ namespace Data.Migrations
                 columns: new[] { "ID", "DateCreated", "DateModified", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(4937), new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(4971), "Subject1" },
-                    { 2, new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(6664), new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(6698), "Subject2" }
+                    { 1, new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(7606), new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(7628), "Subject1" },
+                    { 2, new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(8597), new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(8618), "Subject2" }
                 });
 
             migrationBuilder.InsertData(
@@ -217,26 +217,26 @@ namespace Data.Migrations
                 columns: new[] { "ID", "DateCreated", "DateModified", "Email", "FirstName", "LastName", "Password", "Role" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2020, 1, 17, 23, 43, 17, 565, DateTimeKind.Local).AddTicks(752), new DateTime(2020, 1, 17, 23, 43, 17, 570, DateTimeKind.Local).AddTicks(5109), "Admin@gmail.com", "Admin", "Admin", "ANqMth9WF4REuoUUowdBs2Pnoc9ZK9y9GgIMW63SWhKsyYB9qoQ8ByBi/98GIXi8zg==", "Admin" },
-                    { 2, new DateTime(2020, 1, 17, 23, 43, 17, 584, DateTimeKind.Local).AddTicks(5185), new DateTime(2020, 1, 17, 23, 43, 17, 584, DateTimeKind.Local).AddTicks(5282), "Parent@gmail.com", "Parent", "Parent", "AFvFBV3GCZmwUmAb5mnyJrRKulG021592Jm6dhJdVenh0IU+DqrHg6hX+G0X1L5Daw==", "Parent" },
-                    { 3, new DateTime(2020, 1, 17, 23, 43, 17, 587, DateTimeKind.Local).AddTicks(3745), new DateTime(2020, 1, 17, 23, 43, 17, 587, DateTimeKind.Local).AddTicks(3827), "Student@gmail.com", "Student", "Student", "ACgs/saQL11zLQ4gw+OYfjyETwb6T9jcmSicEg0mqOJc/Fu3djSx+5hQg1BNiHH/NA==", "Student" },
-                    { 4, new DateTime(2020, 1, 17, 23, 43, 17, 589, DateTimeKind.Local).AddTicks(9711), new DateTime(2020, 1, 17, 23, 43, 17, 589, DateTimeKind.Local).AddTicks(9782), "Teacher@gmail.com", "Teacher", "Teacher", "ADrGDm7yKg+EY8vZNTb/AjMYrnRs1GxETL+a7b+YHGhqfPJffttYN7bOzFEYR3cf2g==", "Teacher" },
-                    { 5, new DateTime(2020, 1, 17, 23, 43, 17, 592, DateTimeKind.Local).AddTicks(3257), new DateTime(2020, 1, 17, 23, 43, 17, 592, DateTimeKind.Local).AddTicks(3304), "Student2@gmail.com", "Student2", "Student2", "ADeKWpaYlG3cBMPY/qhJk/LeTpg5fG32f8UQN1vHLWqiPeEUjjbQUen48480MgWuzQ==", "Student" },
-                    { 6, new DateTime(2020, 1, 17, 23, 43, 17, 594, DateTimeKind.Local).AddTicks(7386), new DateTime(2020, 1, 17, 23, 43, 17, 594, DateTimeKind.Local).AddTicks(7455), "Teacher2@gmail.com", "Teacher2", "Teacher2", "AAsNIMulwiepfddle6TLGAFLDgsRuI5NqQBpMitTy06OLpRfY7DSNK6c88bwgp4GYQ==", "Teacher" }
+                    { 1, new DateTime(2020, 1, 18, 13, 1, 31, 519, DateTimeKind.Local).AddTicks(8720), new DateTime(2020, 1, 18, 13, 1, 31, 524, DateTimeKind.Local).AddTicks(4410), "Admin@gmail.com", "Admin", "Admin", "AG/Y8oifFGs/dD0EyUZPc3osP1GufT29XwKW9AuO1w6UGDj7w6vMGpxds5/Cz6/8KQ==", "Admin" },
+                    { 2, new DateTime(2020, 1, 18, 13, 1, 31, 533, DateTimeKind.Local).AddTicks(4627), new DateTime(2020, 1, 18, 13, 1, 31, 533, DateTimeKind.Local).AddTicks(4705), "Parent@gmail.com", "Parent", "Parent", "ADdKM7DMUJWXWdT/vM1wX420NQ1uNsWxXWlrO9AlKsp6WvUShUj+K2+7t6LRxd6XDQ==", "Parent" },
+                    { 3, new DateTime(2020, 1, 18, 13, 1, 31, 534, DateTimeKind.Local).AddTicks(8070), new DateTime(2020, 1, 18, 13, 1, 31, 534, DateTimeKind.Local).AddTicks(8091), "Student@gmail.com", "Student", "Student", "AGy3BM8BnvEdQDd/6dYg9J8M63CRUnmZP5HPz+TdikraYrMthlPgE8kLp+ihhWuVNA==", "Student" },
+                    { 4, new DateTime(2020, 1, 18, 13, 1, 31, 536, DateTimeKind.Local).AddTicks(695), new DateTime(2020, 1, 18, 13, 1, 31, 536, DateTimeKind.Local).AddTicks(708), "Teacher@gmail.com", "Teacher", "Teacher", "AAT+EaIBJwPrMs3vSxM74/G2yVbTrpXV9XZpG63kSRtga6v1sMDayR6E4mw/fCFqaw==", "Teacher" },
+                    { 5, new DateTime(2020, 1, 18, 13, 1, 31, 537, DateTimeKind.Local).AddTicks(5438), new DateTime(2020, 1, 18, 13, 1, 31, 537, DateTimeKind.Local).AddTicks(5470), "Student2@gmail.com", "Student2", "Student2", "AGeh9B5ZOLLw8tw9XFxC7XD0nYTxKzV0bGlkI656DyPpXQq8+TUeIr87j3nzuuU1bA==", "Student" },
+                    { 6, new DateTime(2020, 1, 18, 13, 1, 31, 538, DateTimeKind.Local).AddTicks(7908), new DateTime(2020, 1, 18, 13, 1, 31, 538, DateTimeKind.Local).AddTicks(7918), "Teacher2@gmail.com", "Teacher2", "Teacher2", "AKqkDLmB6dEloFHgu99INXs2oXesQTHynGmAXwhjyaJj8ss39A/uYRCrJo8+ACaGMQ==", "Teacher" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Parents",
                 columns: new[] { "ID", "DateCreated", "DateModified", "UserID" },
-                values: new object[] { 1, new DateTime(2020, 1, 17, 23, 43, 17, 597, DateTimeKind.Local).AddTicks(5075), new DateTime(2020, 1, 17, 23, 43, 17, 597, DateTimeKind.Local).AddTicks(5148), 2 });
+                values: new object[] { 1, new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(1771), new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(1800), 2 });
 
             migrationBuilder.InsertData(
                 table: "Students",
                 columns: new[] { "ID", "DateCreated", "DateModified", "UserID" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2020, 1, 17, 23, 43, 17, 597, DateTimeKind.Local).AddTicks(8697), new DateTime(2020, 1, 17, 23, 43, 17, 597, DateTimeKind.Local).AddTicks(8769), 3 },
-                    { 2, new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(3509), new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(3546), 5 }
+                    { 1, new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(3917), new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(3942), 3 },
+                    { 2, new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(6731), new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(6755), 5 }
                 });
 
             migrationBuilder.InsertData(
@@ -244,8 +244,8 @@ namespace Data.Migrations
                 columns: new[] { "ID", "DateCreated", "DateModified", "UserID" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(1747), new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(1794), 4 },
-                    { 2, new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(3687), new DateTime(2020, 1, 17, 23, 43, 17, 598, DateTimeKind.Local).AddTicks(3702), 6 }
+                    { 1, new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(5682), new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(5707), 4 },
+                    { 2, new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(6833), new DateTime(2020, 1, 18, 13, 1, 31, 540, DateTimeKind.Local).AddTicks(6840), 6 }
                 });
 
             migrationBuilder.InsertData(
@@ -253,8 +253,8 @@ namespace Data.Migrations
                 columns: new[] { "ID", "DateCreated", "DateModified", "Score", "StudentID", "SubjectID" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2020, 1, 17, 23, 43, 17, 599, DateTimeKind.Local).AddTicks(2855), new DateTime(2020, 1, 17, 23, 43, 17, 599, DateTimeKind.Local).AddTicks(2904), 5.0, 1, 1 },
-                    { 2, new DateTime(2020, 1, 17, 23, 43, 17, 599, DateTimeKind.Local).AddTicks(7018), new DateTime(2020, 1, 17, 23, 43, 17, 599, DateTimeKind.Local).AddTicks(7059), 5.0, 2, 2 }
+                    { 1, new DateTime(2020, 1, 18, 13, 1, 31, 541, DateTimeKind.Local).AddTicks(2237), new DateTime(2020, 1, 18, 13, 1, 31, 541, DateTimeKind.Local).AddTicks(2263), 5.0, 1, 1 },
+                    { 2, new DateTime(2020, 1, 18, 13, 1, 31, 541, DateTimeKind.Local).AddTicks(4830), new DateTime(2020, 1, 18, 13, 1, 31, 541, DateTimeKind.Local).AddTicks(4855), 5.0, 2, 2 }
                 });
 
             migrationBuilder.InsertData(

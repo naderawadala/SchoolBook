@@ -33,12 +33,12 @@ namespace SchoolBook.Controllers
 		public IActionResult Delete(int id)
 		{
 			bool res = manager.DeleteByID(id);
-			if (res == true)
+			if (res == false)
 			{
-				return Ok();
+				return BadRequest("Couldn't delete teacher, check if the ID is correct");
+			
 			}
-			return BadRequest();
+			return Ok("Teacher successfully deleted");
 		}
-		
 	}
 }
